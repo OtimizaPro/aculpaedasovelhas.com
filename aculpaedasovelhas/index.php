@@ -19,14 +19,57 @@
         </nav>
     </header>
     <main>
-        <section id="home" class="hero">
-            <h1>A Culpa é das Ovelhas</h1>
-            <p>Onde a responsabilidade é fofa e lanosa.</p>
-            <button>Saiba Mais</button>
+        <section class="profile-header">
+            <div class="profile-content">
+                <div class="profile-info">
+                    <h1>Anderson Belem</h1>
+                    <p class="bio">Fundador e CEO Otimiza Benefícios. Escrevo sobre liderança, inovação e sociedade.</p>
+                    <div class="social-links">
+                        <a href="https://medium.com/@Anderson.Otimiza" target="_blank">Medium</a>
+                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="sobre">
-            <h2>Sobre Nós</h2>
-            <p>Bem-vindo ao nosso espaço. Aqui discutimos tudo sobre o universo ovino e além.</p>
+
+        <section class="feed">
+            <h2>Últimas Publicações</h2>
+            
+            <?php if ( have_posts() ) : ?>
+                <div class="post-list">
+                    <?php while ( have_posts() ) : the_post(); ?>
+                        <article id="post-<?php the_ID(); ?>" <?php post_class('post-card'); ?>>
+                            <header class="entry-header">
+                                <span class="post-date"><?php echo get_the_date('M d, Y'); ?></span>
+                                <h3 class="entry-title">
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                </h3>
+                            </header>
+                            
+                            <div class="entry-summary">
+                                <?php the_excerpt(); ?>
+                            </div>
+                            
+                            <footer class="entry-footer">
+                                <a href="<?php the_permalink(); ?>" class="read-more">Ler mais</a>
+                            </footer>
+                        </article>
+                    <?php endwhile; ?>
+                </div>
+                
+                <div class="pagination">
+                    <?php
+                    the_posts_pagination( array(
+                        'mid_size'  => 2,
+                        'prev_text' => 'Anterior',
+                        'next_text' => 'Próximo',
+                    ) );
+                    ?>
+                </div>
+
+            <?php else : ?>
+                <p>Nenhum artigo encontrado. Comece a escrever no painel do WordPress!</p>
+            <?php endif; ?>
         </section>
     </main>
     <footer>
