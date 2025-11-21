@@ -15,7 +15,10 @@
                 <li><a href="<?php echo home_url(); ?>">Início</a></li>
                 <li><a href="<?php echo home_url('/o-livrinho'); ?>">O Livrinho</a></li>
                 <li><a href="<?php echo home_url('/artigos'); ?>">Artigos</a></li>
-                <li><a href="#assinar" class="btn-subscribe">ASSINAR</a></li>
+                <li><a href="<?php echo home_url('/comunidade'); ?>">Comunidade</a></li>
+                <li><a href="<?php echo home_url('/biblia'); ?>">Bíblia</a></li>
+                <li><a href="<?php echo home_url('/an-agent'); ?>">AN Agent</a></li>
+                <li><a href="<?php echo home_url('/apoie'); ?>" class="btn-subscribe">APOIE</a></li>
             </ul>
         </nav>
     </header>
@@ -23,8 +26,9 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-title">Nas suas mãos, o poder de decidir.</h1>
-            <p class="hero-subtitle">Um portal dedicado à Verdade, à Fé e à Liberdade.</p>
+            <h1 class="hero-title">Jessica e Pedro</h1>
+            <p class="hero-subtitle">Nas suas mãos, o poder de decidir.</p>
+            <p class="hero-subtitle" style="font-size: 1rem; opacity: 0.9;">Um portal dedicado à Verdade, à Fé e à Liberdade.</p>
             <a href="#assinar" class="btn-primary" style="background-color: var(--accent-gold); color: var(--primary-blue);">ASSINE AGORA</a>
         </div>
     </section>

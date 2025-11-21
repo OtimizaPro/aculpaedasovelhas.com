@@ -20,7 +20,10 @@ Template Name: Artigos
                 <li><a href="<?php echo home_url(); ?>">Início</a></li>
                 <li><a href="<?php echo home_url('/o-livrinho'); ?>">O Livrinho</a></li>
                 <li><a href="<?php echo home_url('/artigos'); ?>" class="active">Artigos</a></li>
-                <li><a href="<?php echo home_url('/#assinar'); ?>" class="btn-subscribe">ASSINAR</a></li>
+                <li><a href="<?php echo home_url('/comunidade'); ?>">Comunidade</a></li>
+                <li><a href="<?php echo home_url('/biblia'); ?>">Bíblia</a></li>
+                <li><a href="<?php echo home_url('/an-agent'); ?>">AN Agent</a></li>
+                <li><a href="<?php echo home_url('/apoie'); ?>" class="btn-subscribe">APOIE</a></li>
             </ul>
         </nav>
     </header>
