@@ -66,6 +66,10 @@ Template Name: O Livrinho
                 <div class="technical-note" style="background: #f9f9f9; padding: 1rem; border-left: 4px solid var(--primary-color); margin: 2rem 0;">
                     <p><strong>📌 Nota:</strong> Assim, o “Livrinho na mão do Anjo” não este, é parte central da “Revelação de Jesus Cristo”, transmitido diretamente ao Profeta João.</p>
                 </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <a href="<?php echo home_url('/chaves-e-frameworks'); ?>" class="btn-primary" style="display: inline-block; padding: 1rem 2rem; text-decoration: none;">Ler sobre Chaves e Frameworks →</a>
+                </div>
             </div>
         </article>
     </main>
