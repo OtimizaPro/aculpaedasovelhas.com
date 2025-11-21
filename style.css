@@ -1,3 +1,11 @@
+/*
+Theme Name: A Culpa é das Ovelhas
+Theme URI: https://github.com/OtimizaPro/aculpaedasovelhas.com
+Author: OtimizaPro
+Description: Tema personalizado para A Culpa é das Ovelhas
+Version: 1.0
+*/
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,15 +18,80 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
 }
 
-main {
-    padding: 2rem;
-    flex: 1;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #e0f7fa; /* Um azul clarinho suave */
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #555;
+}
+
+section {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
 }
 
 footer {
