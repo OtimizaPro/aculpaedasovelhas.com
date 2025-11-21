@@ -20,6 +20,7 @@ Template Name: Whitepaper
                 <li><a href="<?php echo home_url(); ?>">Início</a></li>
                 <li><a href="<?php echo home_url('/o-livrinho'); ?>">O Livrinho</a></li>
                 <li><a href="<?php echo home_url('/artigos'); ?>">Artigos</a></li>
+                <li><a href="<?php echo home_url('/sobre'); ?>">O Autor</a></li>
                 <li><a href="<?php echo home_url('/comunidade'); ?>">Comunidade</a></li>
                 <li><a href="<?php echo home_url('/biblia'); ?>">Bíblia</a></li>
                 <li><a href="<?php echo home_url('/an-agent'); ?>">AN Agent</a></li>
