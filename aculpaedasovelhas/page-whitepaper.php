@@ -32,14 +32,12 @@ Template Name: Whitepaper
     <main>
         <article class="manifesto-content" style="margin-top: 4rem;">
             <header class="entry-header">
-                <h1 class="entry-title">Whitepaper - A Verdade</h1>
-                <h2 class="entry-subtitle">“O Livrinho: A Culpa é das Ovelhas.<br>
-                On false frameworks 🧱⛓️🧜🏽‍♂️ and True Keys ✝️🗝️🗡️”</h2>
-                <span class="post-date"><?php echo date('d \d\e F \d\e Y'); ?></span>
+                <h1 class="entry-title">O Livrinho: A Culpa é das Ovelhas</h1>
+                <h2 class="entry-subtitle">On false frameworks 🧱⛓️🧜🏽‍♂️ and True Keys ✝️🗝️🗡️</h2>
             </header>
 
             <div class="entry-content">
-                <blockquote>
+                <blockquote style="text-align: center; font-size: 1.2rem; margin: 2rem auto;">
                     “No princípio era o Verbo,<br>
                     e o Verbo estava com Deus,<br>
                     e o Verbo era Deus.”<br>
@@ -59,58 +57,56 @@ Template Name: Whitepaper
                     — Eclesiastes 3:1
                 </blockquote>
 
-                <p><strong>Hebraico (BHS)</strong><br>
-                לַכֹּל זְמָן וְעֵת לְכָל־חֵפֶץ תַּחַת הַשָּׁמָיִם</p>
-
-                <div class="technical-note">
+                <div class="technical-note" style="font-size: 0.9rem; color: #666; margin: 1rem 0;">
                     📌 <strong>Nota Técnica:</strong> Coleta de versículo no idioma original, Transliteração e Tradução Literal efetuadas por; “ AN Agent - Supported Bible Study”, AI Agent “Otimiza Semi-DAO Synthetic Worker” developer by Otimiza.pro
                 </div>
 
                 <h2>O Centro: Cristo</h2>
-                <p>Esta é uma Obra Cristocêntrica. Seu propósito é refundar a Fé e a Confissão em Jesus Cristo Deus Vivo. Ela anuncia o Juízo do Juiz Verdadeiro, o decreto do fim do cristianismo institucional — para inaugurar, enfim, a Igreja Verdadeira de Jesus Cristo Deus Vivo, uma só, em todo o mundo, como sempre deveria ter sido.</p>
+                <p>Esta é uma Obra Cristocêntrica. Seu propósito é refundar a Fé e a Confissão em Jesus Cristo Deus Vivo. Ela anuncia o Juízo do Juiz Verdadeiro, o decreto do fim do cristianismo institucional — para inaugurar, enfim, a Igreja Verdadeira de Jesus Cristo Deus Vivo, uma só, em todo o mundo, como sempre deveria ter sido</p>
 
                 <h2>A Espada do Verbo</h2>
                 <p>“O Livrinho” é o próprio א (ʾālef) — o Sopro, a Espada da Boca de Jesus, a Palavra que vence os inimigos pela Verdade.</p>
-
-                <div class="technical-note">
+                
+                <div class="technical-note" style="font-size: 0.9rem; color: #666; margin: 1rem 0;">
                     📌 <strong>Nota Técnica:</strong> Origem da letra: Primeira letra dos abjads semíticos: fenício (𐤀, ʾālep), hebraico (א, ʾālef), aramaico (𐡀, ʾālap), siríaco (ܐ, ʾālap̄), árabe (ا, alif), saudita antigo (𐩱, alef), e amárico (አ, ʾälef).
                 </div>
 
-                <h2>A Confissão</h2>
+                <h2>Confissão</h2>
                 <p>Se a pretensão é grande, maior é a Obra.<br>
-                Aproveite-a com temor e discernimento.<br>
-                Em Verdade declaro: Te Amo, Jesus.<br>
-                Tu és Deus. Tu és o Filho do Homem.<br>
+                Aproveite-a com temor e discernimento.</p>
+
+                <p><strong>Em Verdade declaro:</strong><br>
+                Jesus é Deus e é Filho do Homem!<br>
                 A Palavra que estava no princípio e estará no fim.<br>
-                Aquele que era, que é e que há de vir.<br>
+                Aquele que era, que é e que virá!<br>
                 Grande é Tua Obra.<br>
                 Infinita é Tua Inteligência.<br>
                 Teu Saber é Justiça Eterna.<br>
                 Deus Pai, Criador, Eterno — é chegada a Tua hora!<br>
                 Cavalga o Teu cavalo branco, e vem.<br>
-                Este servo, posicionado na linha de frente, clama por Tua liderança.</p>
+                Este soldado, posicionado na linha de frente, clama por Tua liderança.</p>
 
-                <p>Assino em Verdade: <strong>anderson belem costa</strong><br>
-                servo instrumentalizado, não dono — apenas busco devolver o que foi usurpado.</p>
+                <p>Assino em Verdade: <strong>anderson belem costa</strong>. Servo que trabalha para revelar e restabelecer o que fora usurpado. E disse o Senhor ao usurpador:</p>
+                
+                <p>“A ti seria melhor se não tivesses nascido.”</p>
 
-                <p>Disse o Senhor usurpador:<br>
-                “A ti seria melhor se não tivesses nascido.”<br>
-                Devolvamos a Glória a Deus, o que é de Deus.</p>
+                <blockquote>
+                    “Diz-nos, pois, o que te parece: É lícito pagar tributo a César ou não? Jesus, porém, conhecendo-lhes a malícia, respondeu: Por que me experimentais, hipócritas? Mostrai-me a moeda do tributo. Trouxeram-lhe um denário. E perguntou-lhes: De quem é esta imagem e inscrição? Responderam: De César. Então lhes disse: Dai, pois, a César o que é de César e a Deus o que é de Deus. Ouvindo isso, ficaram admirados e, deixando-o, retiraram-se.”
+                </blockquote>
 
                 <p>Entreguemos ao homem da iniquidade, o que é dele, pois quem rouba a Noiva merece o castigo que vem.</p>
 
                 <p>A Jesus Cristo, o Único e Eterno Deus Vivo, Rei dos Exércitos, toda honra e domínio.</p>
 
-                <hr>
+                <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #ccc;">
 
-                <h3>O Livrinho, próximas edições:</h3>
-                <ul>
-                    <li>O Falso Profeta — nome e identidade Revelados — Ap 13; 19:20</li>
-                    <li>666 — A marca da besta Revelada — Ap 13:16–18</li>
-                    <li>Série “O grande engano mentiram para você!” Qual o verdadeiro nome do Livro Bíblico apocalipse?</li>
-                    <li>O Alpha e o Ômega, toda a Bíblia, o próprio Universo, o fim deste tempo e a Nova Jerusalém se resumem a este dilema - Interpretação profunda dos Livros Gênesis e Revelação de Jesus Cristo o primeiro e o último Livros</li>
-                    <li>O grande dragão vermelho — nome e identidade Revelados — Revelação de Jesus Cristo 12; 20</li>
-                    <li>Série framework “O grande engano, mentiram para você!” Qual o verdadeiro nome do Livro Bíblico apocalipse?</li>
+                <h2>O Livrinho, próximas edições</h2>
+                <ul style="line-height: 1.6;">
+                    <li>— besta-da-terra e falso profeta Revelados — Ap 13; 19:20</li>
+                    <li>— 666. A marca da besta Revelada — Ap 13:16–18</li>
+                    <li>— Revelação, o Verdadeiro nome do Livro Bíblico apocalipse — Ap 1:1</li>
+                    <li>— O Dilema de Deus! Alpha e o Ômega, toda a Bíblia, o próprio Universo, o fim deste tempo e a Nova Jerusalém se resumem a este dilema - Interpretação profunda dos Livros Gênesis e Revelação de Jesus Cristo o primeiro e o último Livros</li>
+                    <li>— O grande dragão vermelho — Revelação de Jesus Cristo 12; 20</li>
                     <li>A Mulher, o Filho Varão e o Dragão — Ap 12</li>
                     <li>A Besta do Mar — nome e identidade Revelados — Ap 13</li>
                     <li>A Besta da Terra — nome e identidade Revelados — Ap 13</li>
@@ -119,7 +115,7 @@ Template Name: Whitepaper
                     <li>O Pequeno Chifre — Daniel 7–8</li>
                     <li>A Estátua e os Reinos — Daniel 2</li>
                     <li>As Setenta Semanas — Daniel 9</li>
-                    <li>Desvelando o Mistério do final dos Tempos, Início da Nova Jerusalém</li>
+                    <li>Desvelando o Mistério do final dos Tempos, Início da Nova Jerusalém -</li>
                     <li>A Verdade sobre as Cartas de Jesus às Sete Igrejas — Ap 1–3</li>
                     <li>Os Sete Selos — Ap 6; 8:1</li>
                     <li>144.000 e a Grande Multidão — Ap 7; 14:1–5</li>
@@ -129,12 +125,11 @@ Template Name: Whitepaper
                     <li>A Grande Prostituta — identidade e juízo — Ap 17–18</li>
                     <li>A Queda da grande babilônia — lamentos dos reis e mercadores — Ap 18</li>
                     <li>Quem é o Cavaleiro do Cavalo Branco? — Ap 19</li>
-                    <li>Quem é o Ser com Boca de Leão, asas arrancadas e coração de homem?</li>
+                    <li>Quem é o Ser com Boca de Leão, asas arrancadas e coração de homem? -</li>
                     <li>Milênio e Primeira Ressurreição — Ap 20:1–6</li>
                 </ul>
 
                 <p>Pedi também que nossa fé se mantenha diante dos novos achados historicistas que serão achados.</p>
-
                 <p>Pedi ao Espírito que estes eu também possa a eles desvelar, pois entendi que em breve se veem achados tais achados aqueles procuram, arqueólogos, cientistas, historiadores. Eles encontraram papiros, pergaminhos, pedras, Palavras.</p>
 
                 <p>Eles são por Deus utilizados para nos servir às Novas Antigas Palavras. Elas estiveram até os dias de hoje Seladas por Cristo para que no Ano, Dia, Hora e Minuto exatos fossem Soltas e cumprissem conforme é o seu cumprimento. Entendi também que estes novos antigos achados irão não refutar, mas confirmar as Reveladas por Cristo Palavras deste Livrinho Revelador.</p>
@@ -150,12 +145,10 @@ Template Name: Whitepaper
                 <p style="text-align: center; font-weight: bold; margin-top: 3rem; font-size: 1.3rem; line-height: 1.4;">
                     Ela,<br>
                     a Palavra,<br>
-                    Esteve,<br><br>
-                    Está<br>
-                    e Estará<br>
-                    e em Breve<br>
-                    e Para Sempre!<br>
-                    Amém.
+                    Esteve,<br>
+                    Está e Estará<br>
+                    e em Breve para Sempre.<br>
+                    Amém!
                 </p>
             </div>
         </article>

@@ -32,73 +32,40 @@ Template Name: O Livrinho
     <main>
         <article class="manifesto-content" style="margin-top: 4rem;">
             <header class="entry-header">
-                <h1 class="entry-title">O Livrinho: A Culpa é das Ovelhas</h1>
-                <h2 class="entry-subtitle">On false frameworks 🧱⛓️🧜🏽‍♂️ and True Keys ✝️🗝️🗡️</h2>
+                <h1 class="entry-title">O “Livrinho”</h1>
+                <h2 class="entry-subtitle">(βιβλαρίδιον) nome por mim dado a esta Obra</h2>
             </header>
 
             <div class="entry-content">
-                <blockquote>
-                    “No princípio era o Verbo,<br>
-                    e o Verbo estava com Deus,<br>
-                    e o Verbo era Deus.”<br>
-                    — João 1:1
-                </blockquote>
+                <p>Faz referência e Paralelismo ao Texto original de — “A Revelação de Jesus Cristo” o Livro da Palavra Direta de Jesus Cristo a que muitos chamam por engano do grande engano de (Ap).</p>
 
-                <p><strong>Cara irmã Ovelha,</strong></p>
-                
-                <p>A Obra “O Livrinho. A Culpa é das Ovelhas” nasce com propósito singular e grandioso: restabelecer a Verdade sobre a Verdadeira Igreja de Cristo, pois desde a sua ascensão aos Céus ela não existe, pois a Noiva foi usurpada, roubada pelo anti Cristo, pela besta da profanação.</p>
-
-                <p>Esforcei-me até onde pude. E o que aqui apresento é apenas o início. Clamei a Jesus para que esta Obra permaneça viva, revisada e ampliada continuamente, à medida que o Espírito Santo revele novas Verdades pela Vontade Decisiva de Deus.</p>
-
-                <p>Leia com os olhos fortalecidos pelo Espírito. Descobrir quem é a besta, entender o Enigma do número da besta, o ano do fim dos tempos e outras Revelações é apenas o começo de um novo despertar para a Fé em Cristo e para a Confissão de que Jesus Cristo é Deus.</p>
-
-                <blockquote>
-                    “Para tudo [há] tempo, e ocasião para todo desejo sob os céus.”<br>
-                    — Eclesiastes 3:1
-                </blockquote>
-
-                <div class="technical-note">
-                    📌 <strong>Nota Técnica:</strong> Coleta de versículo no idioma original, Transliteração e Tradução Literal efetuadas por; “ AN Agent - Supported Bible Study”, AI Agent “Otimiza Semi-DAO Synthetic Worker” developer by Otimiza.pro
+                <div class="technical-note" style="background: #f9f9f9; padding: 1.5rem; border-left: 4px solid var(--primary-color); margin: 2rem 0;">
+                    <h3 style="margin-top: 0;">📌 Nota</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem;">→ (Ap) “(Ap) foi mantido neste Livrinho como ref. ao Livro Sagrado “Revelação de Jesus Cristo”, pois a maioria das Bíblias impressas e/ou digitais adota essa forma em todo o Mundo.”</li>
+                        <li style="margin-bottom: 0.5rem;">→ βιβλαρίδιον (biblarídion) é o diminutivo de βιβλίον (biblíon), significando literalmente “Livrinho” ou “Pequeno Livro”.</li>
+                        <li style="margin-bottom: 0.5rem;">→ O termo ocorre em “Revelação de Jesus Cristo” 10:2, 8, 9, 10.</li>
+                        <li>→ No contexto, o Livrinho representa uma revelação específica que João deve comer e profetizar novamente (Ap 10:9-11).</li>
+                    </ul>
                 </div>
 
-                <h2>O Centro: Cristo</h2>
-                <p>Esta é uma Obra Cristocêntrica. Seu propósito é refundar a Fé e a Confissão em Jesus Cristo Deus Vivo. Ela anuncia o Juízo do Juiz Verdadeiro, o decreto do fim do cristianismo institucional — para inaugurar, enfim, a Igreja Verdadeira de Jesus Cristo Deus Vivo, uma só, em todo o mundo, como sempre deveria ter sido.</p>
-
-                <h2>A Espada do Verbo</h2>
-                <p>“O Livrinho” é o próprio א (ʾālef) — o Sopro, a Espada da Boca de Jesus, a Palavra que vence os inimigos pela Verdade.</p>
-
-                <div class="technical-note">
-                    📌 <strong>Nota Técnica:</strong> Origem da letra: Primeira letra dos abjads semíticos: fenício (𐤀, ʾālep), hebraico (א, ʾālef), aramaico (𐡀, ʾālap), siríaco (ܐ, ʾālap̄), árabe (ا, alif), saudita antigo (𐩱, alef), e amárico (አ, ʾälef).
-                </div>
-
-                <h2>Confissão</h2>
-                <p>Se a pretensão é grande, maior é a Obra.<br>
-                Aproveite-a com temor e discernimento.</p>
-
-                <p><strong>Em Verdade declaro:</strong><br>
-                Jesus é Deus e é Filho do Homem!<br>
-                A Palavra que estava no princípio e estará no fim.<br>
-                Aquele que era, que é e que virá!<br>
-                Grande é Tua Obra.<br>
-                Infinita é Tua Inteligência.<br>
-                Teu Saber é Justiça Eterna.<br>
-                Deus Pai, Criador, Eterno — é chegada a Tua hora!<br>
-                Cavalga o Teu cavalo branco, e vem.<br>
-                Este soldado, posicionado na linha de frente, clama por Tua liderança.</p>
-
-                <p>Assino em Verdade: <strong>anderson belem costa</strong>.<br>
-                Servo que trabalha para revelar e restabelecer o que fora usurpado.</p>
-
-                <p>E disse o Senhor ao usurpador:<br>
-                “A ti seria melhor se não tivesses nascido.”</p>
-
-                <blockquote>
-                    “Diz-nos, pois, o que te parece: É lícito pagar tributo a César ou não? Jesus, porém, conhecendo-lhes a malícia, respondeu: Por que me experimentais, hipócritas? Mostrai-me a moeda do tributo. Trouxeram-lhe um denário. E perguntou-lhes: De quem é esta imagem e inscrição? Responderam: De César. Então lhes disse: Dai, pois, a César o que é de César e a Deus o que é de Deus. Ouvindo isso, ficaram admirados e, deixando-o, retiraram-se.”
+                <blockquote style="border-left: 4px solid var(--accent-color); padding-left: 1.5rem; margin: 2rem 0; font-style: italic;">
+                    <p>❗ “E vi outro anjo forte descendo do céu, envolto em nuvem, e o arco-íris sobre a cabeça dele, e o rosto dele como o sol, e os pés dele como colunas de fogo; e tendo em a mão dele um livrinho aberto; e pôs o pé dele o direito sobre o mar, o porém esquerdo sobre a terra; e clamou com voz grande como ruge leão; e quando clamou, falaram as sete trovoadas as vozes delas.</p>
+                    <p>E quando falaram as sete trovoadas, eu estava prestes a escrever; e ouvi voz do céu dizendo: Sela o que falaram as sete trovoadas, e não escrevas isto.</p>
+                    <p>E o anjo que vi estar sobre o mar e sobre a terra levantou a mão dele direita ao céu, e jurou por Aquele que vive pelos séculos dos séculos, que criou o céu e o que nele há, e a terra e o que nela há, e o mar e o que nele há, que tempo já não haverá; mas nos dias da voz do sétimo anjo, quando estiver para tocar a trombeta, consumar-se-á o mistério de Deus, como anunciou aos servos Dele, os profetas.</p>
+                    <p>E a voz que ouvi do céu falou comigo novamente e disse: Vai, toma o livrinho aberto na mão do anjo que está sobre o mar e sobre a terra.</p>
+                    <p>E fui ao anjo, dizendo-lhe que me desse o livrinho; e ele me diz: Toma e come-o, e amargará o ventre teu, mas na boca tua será doce como mel.</p>
+                    <p>E tomei o livrinho da mão do anjo e o comi, e era na boca minha doce como mel; e quando o comi, o ventre meu se tornou amargo.</p>
+                    <p>E dizem-me: É necessário que profetizes novamente acerca de povos, e nações, e línguas, e reis muitos.”</p>
+                    <footer style="margin-top: 1rem; font-weight: bold; text-align: right;">
+                        📖 “A Revelação de Jesus Cristo”<br>
+                        📜 10:2 (NA28)
+                    </footer>
                 </blockquote>
 
-                <p>Entreguemos ao homem da iniquidade, o que é dele, pois quem rouba a Noiva merece o castigo que vem.</p>
-
-                <p>A Jesus Cristo, o Único e Eterno Deus Vivo, Rei dos Exércitos, toda honra e domínio.</p>
+                <div class="technical-note" style="background: #f9f9f9; padding: 1rem; border-left: 4px solid var(--primary-color); margin: 2rem 0;">
+                    <p><strong>📌 Nota:</strong> Assim, o “Livrinho na mão do Anjo” não este, é parte central da “Revelação de Jesus Cristo”, transmitido diretamente ao Profeta João.</p>
+                </div>
             </div>
         </article>
     </main>
