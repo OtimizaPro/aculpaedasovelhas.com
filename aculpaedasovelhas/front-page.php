@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Culpa é das Ovelhas - Portal</title>
+    <title>A Culpa é das Ovelhas - Reportagem Especial</title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <?php wp_head(); ?>
 </head>
@@ -23,123 +23,121 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Jessica e Pedro</h1>
-            <p class="hero-subtitle">Nas suas mãos, o poder de decidir.</p>
-            <p class="hero-subtitle" style="font-size: 1rem; opacity: 0.9;">Um portal dedicado à Verdade, à Fé e à Liberdade.</p>
-            <a href="#assinar" class="btn-primary" style="background-color: var(--accent-gold); color: var(--primary-blue);">ASSINE AGORA</a>
-        </div>
-    </section>
-
-    <main>
-        <!-- Whitepaper Section (Destaque) -->
-        <section id="whitepaper" class="section-container whitepaper-teaser">
-            <h2 class="section-title">Whitepaper - A Verdade</h2>
-            <div class="manifesto-content">
-                <h3 style="text-align: center; margin-bottom: 2rem;">“O Livrinho: A Culpa é das Ovelhas”</h3>
-                <blockquote>
-                    “No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus.” — João 1:1
-                </blockquote>
-                <p>A Obra “O Livrinho. A Culpa é das Ovelhas” nasce com propósito singular e grandioso: restabelecer a Verdade sobre a Verdadeira Igreja de Cristo...</p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="<?php echo home_url('/o-livrinho'); ?>" class="btn-primary">LER O MANIFESTO COMPLETO</a>
+    <main class="article-layout">
+        <section class="article-hero">
+            <div class="breadcrumb">
+                <a href="<?php echo home_url(); ?>">Início</a>
+                <span>&gt;</span>
+                <a href="<?php echo home_url('/artigos'); ?>">Reportagens</a>
+                <span>&gt;</span>
+                <span>Edição Especial</span>
+            </div>
+            <span class="article-tag">Edição Especial</span>
+            <h1>Jessica e Pedro</h1>
+            <h2>Nas suas mãos, o poder de decidir.</h2>
+            <p class="hero-lede">Um portal dedicado à Verdade, à Fé e à Liberdade.</p>
+            <div class="article-meta">
+                <img src="https://via.placeholder.com/64" alt="Anderson Belem">
+                <div>
+                    <span class="author-name">Anderson Belem</span>
+                    <span class="meta-role">Fundador e editor responsável</span>
+                    <span class="meta-date">Atualizado em <?php echo date('d \d\e F \d\e Y'); ?></span>
                 </div>
             </div>
         </section>
 
-        <!-- Colunistas Section -->
-        <section id="colunistas" class="section-container" style="background-color: white;">
-            <h2 class="section-title">Nossos Colunistas</h2>
-            <div class="columnists-grid">
-                <!-- Colunista 1 -->
-                <div class="columnist-card">
-                    <img src="https://via.placeholder.com/150" alt="Anderson Belem" class="columnist-avatar">
-                    <h3 class="columnist-name">Anderson Belem</h3>
-                    <p>Fundador & CEO Otimiza.pro. Escreve sobre Fé, Tecnologia e Sociedade.</p>
-                </div>
-                <!-- Colunista 2 (Placeholder) -->
-                <div class="columnist-card">
-                    <img src="https://via.placeholder.com/150" alt="Colunista Convidado" class="columnist-avatar">
-                    <h3 class="columnist-name">Colunista Convidado</h3>
-                    <p>Espaço reservado para vozes que edificam.</p>
-                </div>
-                <!-- Colunista 3 (Placeholder) -->
-                <div class="columnist-card">
-                    <img src="https://via.placeholder.com/150" alt="Colunista Convidado" class="columnist-avatar">
-                    <h3 class="columnist-name">Colunista Convidado</h3>
-                    <p>Análises profundas sobre o cenário atual.</p>
-                </div>
-            </div>
+        <section class="article-cover">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80" alt="Editorial A Culpa é das Ovelhas">
+            <p class="caption">Movimento independente para salvaguardar fé, liberdade e responsabilidade individual com tecnologia e comunidade.</p>
         </section>
 
-        <!-- Assinar / Planos Section -->
-        <section id="assinar" class="section-container">
-            <h2 class="section-title">Escolha o plano ideal para você</h2>
-            <div class="pricing-grid">
-                <!-- Plano Digital -->
-                <div class="pricing-card">
-                    <h3>Plano Digital</h3>
-                    <div class="price">R$ 27,90<span>/mês</span></div>
-                    <ul style="text-align: left; margin: 2rem 0; list-style: none;">
-                        <li>✅ Acesso ilimitado a notícias</li>
-                        <li>✅ Colunas exclusivas</li>
-                        <li>✅ Comentários liberados</li>
-                    </ul>
-                    <a href="#" class="btn-primary">ASSINAR</a>
-                </div>
-
-                <!-- Plano Premium (Destaque) -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">MAIS POPULAR</div>
-                    <h3>Plano Premium</h3>
-                    <div class="price">R$ 44,90<span>/mês</span></div>
-                    <ul style="text-align: left; margin: 2rem 0; list-style: none;">
-                        <li>✅ <strong>Tudo do Digital</strong></li>
-                        <li>✅ Navegação sem anúncios</li>
-                        <li>✅ E-books e Cursos exclusivos</li>
-                        <li>✅ Acesso antecipado ao Whitepaper</li>
-                    </ul>
-                    <a href="#" class="btn-primary">ASSINAR PREMIUM</a>
-                </div>
-
-                <!-- Plano Anual -->
-                <div class="pricing-card">
-                    <h3>Plano Anual</h3>
-                    <div class="price">R$ 21,00<span>/mês</span></div>
-                    <p style="font-size: 0.9rem; color: #666;">Cobrado anualmente (R$ 252,00)</p>
-                    <ul style="text-align: left; margin: 2rem 0; list-style: none;">
-                        <li>✅ Economia de 25%</li>
-                        <li>✅ Todos os benefícios do Digital</li>
-                    </ul>
-                    <a href="#" class="btn-primary">ASSINAR ANUAL</a>
-                </div>
-            </div>
+        <section class="article-share">
+            <?php
+                $share_title = urlencode('Jessica e Pedro — A Culpa é das Ovelhas');
+                $share_url = urlencode(home_url());
+            ?>
+            <span>Compartilhar</span>
+            <a class="share-button" href="https://api.whatsapp.com/send?text=<?php echo $share_title . '%20' . $share_url; ?>" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="share-button" href="https://t.me/share/url?url=<?php echo $share_url; ?>&text=<?php echo $share_title; ?>" target="_blank" rel="noreferrer">Telegram</a>
+            <a class="share-button" href="https://twitter.com/intent/tweet?text=<?php echo $share_title; ?>&url=<?php echo $share_url; ?>" target="_blank" rel="noreferrer">X (Twitter)</a>
+            <a class="share-button" href="mailto:?subject=<?php echo $share_title; ?>&body=<?php echo $share_url; ?>" target="_blank" rel="noreferrer">E-mail</a>
         </section>
 
-        <!-- Quem Somos Section -->
-        <section id="quem-somos" class="section-container" style="background-color: white;">
-            <h2 class="section-title">Quem Somos</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    A "A Culpa é das Ovelhas" é mais que um portal, é um movimento. 
-                    Reconhecemos a dignidade intrínseca de cada vida humana e buscamos a Verdade acima de tudo.
-                </p>
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 200px;">
-                        <h4>Dignidade Humana</h4>
-                        <p>Valorizamos a vida desde a concepção.</p>
-                    </div>
-                    <div style="flex: 1; min-width: 200px;">
-                        <h4>Liberdade</h4>
-                        <p>Acreditamos na liberdade individual e responsabilidade.</p>
-                    </div>
-                    <div style="flex: 1; min-width: 200px;">
-                        <h4>Verdade</h4>
-                        <p>Compromisso inegociável com os fatos.</p>
-                    </div>
-                </div>
+        <article class="article-body">
+            <p>
+                Jessica e Pedro simbolizam as famílias que acompanham a verdade sem ruído. Ao colocar suas histórias no centro desta edição especial,
+                reafirmamos que cada leitor tem o poder de decidir o futuro da nação ao buscar informação precisa, sólida e fundamentada em fé.
+            </p>
+
+            <blockquote>
+                “No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus.” — João 1:1
+            </blockquote>
+
+            <p>
+                A cobertura premium da A Culpa é das Ovelhas adota metodologia semelhante aos grandes portais, mas mantém o compromisso com a honestidade.
+                Aqui você encontra investigações autorais, projetos comunitários e tecnologia aplicada à leitura bíblica, tudo dentro da estética azul e dourada que já conhece.
+            </p>
+
+            <h3>White Paper: Texto de manifesto</h3>
+            <p>
+                O manifesto “O Livrinho” apresenta a refundação da fé em Cristo e pode ser lido na íntegra.
+                Acesse o documento completo, acompanhe as próximas revelações e entenda o chamado desta obra cristocêntrica.
+            </p>
+            <p>
+                <a class="inline-link" href="<?php echo home_url('/o-livrinho'); ?>">Ler o White Paper completo</a>
+            </p>
+
+            <h3>Comunidade: rede social própria</h3>
+            <p>
+                A plataforma comunitária está em desenvolvimento para reunir leitores, colunistas e intercessores em um mesmo espaço digital.
+                Será possível compartilhar estudos, organizar grupos locais e fortalecer a cultura de discipulado responsável.
+            </p>
+
+            <h3>Apoie: assinatura e contribuição</h3>
+            <p>
+                Assinaturas mantêm os projetos Livros Livrinho, Artigos, Otimize-se e Somente Jesus faz por você.
+                Também é possível enviar ofertas únicas para acelerar a produção editorial e técnica.
+            </p>
+            <ul>
+                <li>Planos mensais com acesso antecipado aos conteúdos;</li>
+                <li>Contribuições anuais com economia e e-books exclusivos;</li>
+                <li>Apoio pontual direcionado a iniciativas específicas.</li>
+            </ul>
+
+            <h3>Bíblia: nova tradução literal rígida</h3>
+            <p>
+                O projeto bíblico aplica estudo linguístico em hebraico, aramaico e grego, com apoio de IA para manter fidelidade absoluta ao texto fonte.
+                Cada versículo é documentado com transliterações, contexto histórico e notas técnicas abertas ao público.</p>
+
+            <h3>AN Agent: estudo bíblico com IA</h3>
+            <p>
+                O AN Agent reúne um banco de dados completo das Escrituras e oferece buscas semânticas, correlação entre traduções e guias de estudo personalizados.
+                É a aplicação prática de tecnologia para aprofundar a fé, mantendo auditoria humana e supervisão teológica.</p>
+
+            <p>
+                Todos esses pilares apontam para o mesmo destino: fortalecer Jessica, Pedro e cada leitor em sua jornada espiritual, intelectual e cívica.
+                Permanecemos compromissados com a excelência editorial sem abrir mão do temor a Deus.
+            </p>
+        </article>
+
+        <section class="article-related">
+            <h3>Projetos em destaque</h3>
+            <div class="related-grid">
+                <a class="related-card" href="<?php echo home_url('/o-livrinho'); ?>">
+                    <span class="related-label">Manifesto</span>
+                    <h4>O Livrinho</h4>
+                    <p>Leia a versão integral do White Paper que fundamenta o movimento.</p>
+                </a>
+                <a class="related-card" href="<?php echo home_url('/comunidade'); ?>">
+                    <span class="related-label">Rede Social</span>
+                    <h4>Comunidade</h4>
+                    <p>Conheça o projeto da plataforma que conecta leitores e intercessores.</p>
+                </a>
+                <a class="related-card" href="<?php echo home_url('/apoie'); ?>">
+                    <span class="related-label">Assinaturas</span>
+                    <h4>Apoie</h4>
+                    <p>Contribua com assinaturas ou doações únicas para manter o jornalismo independente.</p>
+                </a>
             </div>
         </section>
     </main>
@@ -153,10 +151,10 @@
             <div class="footer-col">
                 <h4>Institucional</h4>
                 <ul>
-                    <li><a href="#quem-somos">Quem Somos</a></li>
-                    <li><a href="#colunistas">Colunistas</a></li>
-                    <li><a href="#assinar">Assine</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="<?php echo home_url('/comunidade'); ?>">Quem Somos</a></li>
+                    <li><a href="<?php echo home_url('/artigos'); ?>">Artigos</a></li>
+                    <li><a href="<?php echo home_url('/apoie'); ?>">Assine</a></li>
+                    <li><a href="<?php echo home_url('/contato'); ?>">Fale Conosco</a></li>
                 </ul>
             </div>
             <div class="footer-col">
