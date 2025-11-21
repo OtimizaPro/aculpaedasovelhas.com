@@ -21,7 +21,9 @@
     <main>
         <article class="manifesto-content">
             <header class="entry-header">
-                <h1 class="entry-title">O Livrinho: A Culpa é das Ovelhas</h1>
+                <h1 class="entry-title">Whitepaper - A Verdade</h1>
+                <h2 class="entry-subtitle">“O Livrinho: A Culpa é das Ovelhas.<br>
+                On false frameworks 🧱⛓️🧜🏽‍♂️ and True Keys ✝️🗝️🗡️”</h2>
                 <span class="post-date"><?php echo date('d \d\e F \d\e Y'); ?></span>
             </header>
 
