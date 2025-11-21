@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Culpa é das Ovelhas</title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
+    <?php wp_head(); ?>
 </head>
 <body>
     <header>
@@ -32,5 +33,6 @@
         <p>&copy; 2025 A Culpa é das Ovelhas</p>
     </footer>
     <script src="<?php echo get_template_directory_uri(); ?>/script.js"></script>
+    <?php wp_footer(); ?>
 </body>
 </html>
