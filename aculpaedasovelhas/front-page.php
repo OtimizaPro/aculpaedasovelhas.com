@@ -12,9 +12,9 @@
         <nav>
             <div class="logo">A Culpa é das Ovelhas</div>
             <ul>
-                <li><a href="#whitepaper">Whitepaper</a></li>
-                <li><a href="#colunistas">Colunistas</a></li>
-                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="<?php echo home_url(); ?>">Início</a></li>
+                <li><a href="<?php echo home_url('/o-livrinho'); ?>">O Livrinho</a></li>
+                <li><a href="<?php echo home_url('/artigos'); ?>">Artigos</a></li>
                 <li><a href="#assinar" class="btn-subscribe">ASSINAR</a></li>
             </ul>
         </nav>
@@ -40,7 +40,7 @@
                 </blockquote>
                 <p>A Obra “O Livrinho. A Culpa é das Ovelhas” nasce com propósito singular e grandioso: restabelecer a Verdade sobre a Verdadeira Igreja de Cristo...</p>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="<?php echo home_url('/whitepaper'); ?>" class="btn-primary">LER O MANIFESTO COMPLETO</a>
+                    <a href="<?php echo home_url('/o-livrinho'); ?>" class="btn-primary">LER O MANIFESTO COMPLETO</a>
                 </div>
             </div>
         </section>
