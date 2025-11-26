@@ -8,7 +8,8 @@ add_action('after_setup_theme', function () {
 });
 
 // Estimar tempo de leitura
-function acu_estimate_reading_time($content) {
+function acu_estimated_reading_time() {
+    $content = get_post_field('post_content', get_the_ID());
     $word_count = str_word_count(strip_tags($content));
     $reading_time = ceil($word_count / 200);
     return max(1, $reading_time);
@@ -33,7 +34,7 @@ add_action('wp_enqueue_scripts', function () {
             true
         );
     }
-
+    
     if (is_page_template('page-artigos.php')) {
         wp_enqueue_script(
             'aculpa-artigos-ui',
