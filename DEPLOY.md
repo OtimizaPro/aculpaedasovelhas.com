@@ -53,7 +53,7 @@ git push origin main
 
 ## 3. Atualizar e validar o site remoto (aculpaedasovelhas.com)
 
-O site de produção está em **https://aculpaedasovelhas.com**.
+O site de produção está em **<https://aculpaedasovelhas.com>**.
 
 ### 3.1. Atualizar código no servidor
 
@@ -62,10 +62,12 @@ A sincronização entre o repositório GitHub e o servidor pode ser feita de vá
 - **Se o repositório está clonado no servidor** (recomendado):
   - Acesse a pasta do tema no servidor (por exemplo, `wp-content/themes/aculpaedasovelhas`).
   - Execute:
+
     ```bash
     git checkout main
     git pull origin main
     ```
+
   - Isso traz para o servidor o mesmo código que está no GitHub.
 
 - **Se usa SFTP / WinSCP**:

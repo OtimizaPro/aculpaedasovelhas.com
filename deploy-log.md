@@ -5,18 +5,20 @@
 **Data/Hora:** 2025-11-26
 **Responsável:** (preencher)
 **Ambiente:** Produção
-**Site:** https://aculpaedasovelhas.com
+**Site:** <https://aculpaedasovelhas.com>
 
 **Branch:** main
 **Commit(s):** (preencher com hash ou link do commit)
 
 **Escopo do deploy:**
+
 - Criação/ativação da página de listagem de artigos (`page-artigos.php`)
 - Garantia de enqueue do script `assets/js/artigos.js` via `functions.php`
 - Documentação do fluxo de deploy no arquivo `DEPLOY.md`
 - Organização do script `publish-post.ps1` para publicação via Outlook + `.env`
 
 **Passos executados:**
+
 - Edição de arquivos na pasta local `C:\Projetos\AN Agent - site  aculpaedasovelhas.com`
 - `git checkout main`
 - `git add .`
@@ -28,8 +30,10 @@
   - `https://aculpaedasovelhas.com/artigos`
 
 **Resultado:**
+
 - [ ] OK – deploy concluído sem erros visíveis
 - [ ] Com pendências – ver observações
 
 **Observações:**
+
 - (anotar qualquer erro, correção rápida, ajuste de menu, etc.)
