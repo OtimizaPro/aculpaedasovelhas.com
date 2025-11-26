@@ -1,149 +1,118 @@
 <?php
+/* LEITURA OBRIGATÓRIA: ./DEFINICOES_DO_PROJETO.md */
 /**
  * Template Name: O Livrinho
- * Description: Página do Livrinho - Resumo do Evangelho em uma folha A4
+ * Description: Página do Livrinho - Manifesto e Download
  */
-get_header();
 ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php bloginfo('name'); ?> | O Livrinho</title>
+    <link rel="stylesheet" href="<?php echo esc_url(get_stylesheet_uri()); ?>">
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class('livrinho-page'); ?>>
 
-<main class="livrinho-page">
-    <section class="livrinho-hero">
-        <div class="hero-content">
-            <span class="hero-badge">Uma folha · Uma vida</span>
-            <h1>O Livrinho</h1>
-            <p class="hero-subtitle">O Evangelho completo em uma única folha A4</p>
-        </div>
-    </section>
-
-    <section class="livrinho-intro">
-        <div class="intro-content">
-            <h2>Uma mensagem que cabe no bolso</h2>
-            <p>O Livrinho é uma síntese poderosa do Evangelho, projetada para ser impressa em uma única folha A4 e dobrada em um formato portátil. É perfeito para compartilhar, estudar e carregar com você.</p>
-        </div>
-    </section>
-
-    <section class="livrinho-features">
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📄</div>
-                <h3>Uma Folha</h3>
-                <p>Todo o essencial do Evangelho em formato compacto</p>
+    <!-- Navigation (Simplified for consistency) -->
+    <nav class="ms-header" style="position: absolute; width: 100%; background: transparent; border: none;">
+        <div class="ms-header-content">
+            <div class="ms-logo">
+                <a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🖨️</div>
-                <h3>Fácil Impressão</h3>
-                <p>Basta imprimir em A4 e dobrar seguindo as instruções</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Direto ao Ponto</h3>
-                <p>Mensagem clara e objetiva sobre salvação</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Para Compartilhar</h3>
-                <p>Perfeito para evangelismo e distribuição</p>
+            <div class="ms-user-menu">
+                <a href="<?php echo esc_url(home_url('/artigos')); ?>" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Voltar ao Painel</a>
             </div>
         </div>
+    </nav>
+
+    <section class="hero-banner" style="min-height: 60vh; display: flex; align-items: center;">
+        <div class="hero-inner" style="text-align: center; display: block;">
+            <div class="hero-copy" style="margin: 0 auto; max-width: 800px;">
+                <span class="hero-pill">Manifesto</span>
+                <h1>O Livrinho</h1>
+                <p style="margin: 1.5rem auto;">A síntese do Evangelho e as chaves da responsabilidade civil em uma única folha. Uma mensagem que cabe no bolso e muda uma vida.</p>
+                
+                <div class="hero-ctas" style="justify-content: center;">
+                    <a class="btn-hero-primary" href="#download">Baixar PDF</a>
+                    <a class="btn-hero-secondary" href="#leitura">Ler Online</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-noise" aria-hidden="true"></div>
     </section>
 
-    <section class="livrinho-content">
+    <main id="leitura" class="livrinho-content">
         <div class="content-wrapper">
-            <h2>O que está no Livrinho?</h2>
+            <div class="ms-page-header" style="text-align: center; margin-bottom: 4rem;">
+                <h2>Os 4 Pilares</h2>
+                <p class="ms-subtitle" style="margin: 0 auto;">A estrutura fundamental da mensagem.</p>
+            </div>
             
             <div class="content-blocks">
                 <div class="content-block">
                     <span class="block-number">1</span>
-                    <h3>O Problema</h3>
-                    <p>Todos pecaram e estão destituídos da glória de Deus. O pecado nos separa de um Deus santo e justo.</p>
+                    <div>
+                        <h3>O Problema</h3>
+                        <p>Todos pecaram e estão destituídos da glória de Deus. O pecado não é apenas um erro moral, é uma desconexão fundamental da fonte da Vida, gerando morte física e espiritual.</p>
+                    </div>
                 </div>
 
                 <div class="content-block">
                     <span class="block-number">2</span>
-                    <h3>A Solução</h3>
-                    <p>Deus amou o mundo de tal maneira que deu seu Filho unigênito para morrer em nosso lugar na cruz.</p>
+                    <div>
+                        <h3>A Solução</h3>
+                        <p>Deus amou o mundo de tal maneira que deu seu Filho unigênito. A cruz não foi um acidente, foi o pagamento judicial e substitutivo pela nossa dívida.</p>
+                    </div>
                 </div>
 
                 <div class="content-block">
                     <span class="block-number">3</span>
-                    <h3>A Resposta</h3>
-                    <p>Arrependimento e fé em Jesus Cristo são o único caminho para a salvação e vida eterna.</p>
+                    <div>
+                        <h3>A Resposta</h3>
+                        <p>Arrependimento e fé. Não é sobre religião ou rituais, mas sobre uma mudança de mente (metanoia) e confiança total na obra consumada de Cristo.</p>
+                    </div>
                 </div>
 
                 <div class="content-block">
                     <span class="block-number">4</span>
-                    <h3>A Promessa</h3>
-                    <p>Quem crê no Filho tem a vida eterna. Somos justificados pela graça mediante a fé.</p>
+                    <div>
+                        <h3>A Promessa</h3>
+                        <p>Quem crê no Filho tem a vida eterna. Uma nova natureza é implantada, e a responsabilidade civil do Reino começa agora.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section class="livrinho-download">
+    <section id="download" class="livrinho-download">
         <div class="download-content">
-            <h2>Baixe o Livrinho</h2>
-            <p>Disponível em PDF para impressão caseira ou gráfica profissional</p>
+            <h2>Leve com você</h2>
+            <p>O formato original foi desenhado para ser impresso em uma folha A4 e dobrado.</p>
             
             <div class="download-options">
                 <a href="#" class="download-btn primary">
                     <span class="btn-icon">⬇️</span>
                     <span class="btn-text">
                         <strong>Download PDF</strong>
-                        <small>Pronto para impressão A4</small>
-                    </span>
-                </a>
-                
-                <a href="#" class="download-btn secondary">
-                    <span class="btn-icon">📖</span>
-                    <span class="btn-text">
-                        <strong>Instruções de Dobra</strong>
-                        <small>Como montar o livrinho</small>
+                        <small>Versão para Impressão (A4)</small>
                     </span>
                 </a>
             </div>
 
-            <div class="print-specs">
-                <h3>Especificações de Impressão</h3>
-                <ul>
-                    <li>📏 Tamanho: A4 (210 × 297 mm)</li>
-                    <li>🎨 Cores: Preto e branco ou colorido</li>
-                    <li>📄 Papel: Sulfite 75g ou couché 90g</li>
-                    <li>✂️ Acabamento: Dobra tripla</li>
+            <div class="print-specs" style="margin-top: 3rem;">
+                <h3>Instruções</h3>
+                <ul style="text-align: left;">
+                    <li>1. Imprima em papel A4 (Sulfite ou Couché).</li>
+                    <li>2. Dobre ao meio na horizontal.</li>
+                    <li>3. Dobre ao meio na vertical duas vezes (formato sanfona).</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="livrinho-testimonials">
-        <div class="testimonials-wrapper">
-            <h2>Histórias de Transformação</h2>
-            
-            <div class="testimonials-grid">
-                <blockquote class="testimonial">
-                    <p>"Recebi o Livrinho em uma praça e ele mudou minha vida. A mensagem era exatamente o que eu precisava ouvir."</p>
-                    <cite>— Maria Silva</cite>
-                </blockquote>
-
-                <blockquote class="testimonial">
-                    <p>"Uso o Livrinho no meu trabalho de evangelismo. É prático, direto e as pessoas realmente leem."</p>
-                    <cite>— João Santos</cite>
-                </blockquote>
-
-                <blockquote class="testimonial">
-                    <p>"Imprimi 100 unidades para distribuir na igreja. A resposta foi incrível!"</p>
-                    <cite>— Pastor Carlos</cite>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <section class="livrinho-cta">
-        <div class="cta-content">
-            <h2>Compartilhe a Esperança</h2>
-            <p>Baixe, imprima e distribua o Livrinho em sua comunidade</p>
-            <a href="#" class="cta-button">Começar Agora</a>
-        </div>
-    </section>
-</main>
-
-<?php get_footer(); ?>
+    <?php wp_footer(); ?>
+</body>
+</html>
