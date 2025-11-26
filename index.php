@@ -1,7 +1,9 @@
 <?php
-// Fallback template forwarding to the hero front page when no other template is available.
-if (file_exists(__DIR__ . '/front-page.php')) {
-    require __DIR__ . '/front-page.php';
+// Fallback template: If this is the blog index or any other generic page, 
+// we want to show the "Microsoft Dashboard" layout (which is in page-artigos.php),
+// NOT the "Thesis" landing page (front-page.php).
+if (file_exists(__DIR__ . '/page-artigos.php')) {
+    require __DIR__ . '/page-artigos.php';
     return;
 }
 ?>
@@ -16,7 +18,7 @@ if (file_exists(__DIR__ . '/front-page.php')) {
 <body <?php body_class(); ?>>
     <main>
         <h1><?php esc_html_e('A Culpa é das Ovelhas', 'aculpa'); ?></h1>
-        <p><?php esc_html_e('Instale o front-page.php para ver o banner.', 'aculpa'); ?></p>
+        <p><?php esc_html_e('Painel não encontrado.', 'aculpa'); ?></p>
     </main>
     <?php wp_footer(); ?>
 </body>
