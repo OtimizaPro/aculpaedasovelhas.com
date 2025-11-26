@@ -26,6 +26,14 @@ add_action('wp_enqueue_scripts', function () {
         $version
     );
 
+    wp_enqueue_script(
+        'aculpa-theme-toggle',
+        get_template_directory_uri() . '/assets/js/theme-toggle.js',
+        [],
+        $version,
+        true
+    );
+
     if (is_page_template('page-biblia.php')) {
         wp_enqueue_script(
             'aculpa-bible-ui',

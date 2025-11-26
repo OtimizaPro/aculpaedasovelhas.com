@@ -22,7 +22,8 @@
             <div class="ms-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
             </div>
-            <div class="ms-user-menu">
+            <div class="ms-user-menu" style="display: flex; gap: 1rem; align-items: center;">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema">☀️</button>
                 <a href="<?php echo esc_url(home_url('/artigos')); ?>" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Voltar ao Painel</a>
             </div>
         </div>

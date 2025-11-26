@@ -21,7 +21,8 @@
             <div class="ms-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
             </div>
-            <div class="ms-user-menu">
+            <div class="ms-user-menu" style="display: flex; gap: 1rem; align-items: center;">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema">☀️</button>
                 <!-- Placeholder for user icon -->
                 <div class="ms-user-avatar"></div>
             </div>

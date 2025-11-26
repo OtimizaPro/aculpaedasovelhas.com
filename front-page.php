@@ -15,6 +15,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+    <button id="theme-toggle" class="theme-toggle-btn" style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 100;" aria-label="Alternar tema">☀️</button>
     <section class="hero-banner">
         <div class="hero-inner">
             <div class="hero-copy">
