@@ -1,8 +1,8 @@
 <?php
 /* LEITURA OBRIGATÓRIA: ./DEFINICOES_DO_PROJETO.md */
 /**
- * Template Name: Artigos (Painel)
- * Description: Microsoft Account Inspired Layout moved to Artigos
+ * Template Name: Artigos (Painel + Blog)
+ * Description: Microsoft Account Inspired Layout with Blog Grid
  */
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                     <div class="ms-card-content">
                         <h3>Artigos Recentes</h3>
                         <p>Explore os últimos estudos, contestações e insights publicados.</p>
-                        <a href="<?php echo esc_url(home_url('/artigos')); ?>" class="ms-card-link">Ver todos &rarr;</a>
+                        <a href="#blog-grid" class="ms-card-link">Ver todos &rarr;</a>
                     </div>
                 </div>
 
@@ -90,6 +90,116 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Blog System Integration -->
+            <div id="blog-grid" class="ms-blog-section" style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 3rem;">
+                <div class="ms-page-header">
+                    <h2>Biblioteca de Artigos</h2>
+                    <p class="ms-subtitle">Reflexões apologéticas, estudos bíblicos e análises teológicas</p>
+                </div>
+
+                <section class="artigos-filters" style="background: transparent; padding: 0; margin-bottom: 2rem;">
+                    <div class="filters-wrapper">
+                        <div class="search-box">
+                            <input type="text" id="artigos-search" placeholder="Buscar artigos..." />
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        
+                        <div class="filter-pills">
+                            <button class="filter-pill active" data-category="all">Todos</button>
+                            <button class="filter-pill" data-category="apologetica">Apologética</button>
+                            <button class="filter-pill" data-category="teologia">Teologia</button>
+                            <button class="filter-pill" data-category="biblia">Estudos Bíblicos</button>
+                            <button class="filter-pill" data-category="cultura">Cultura & Sociedade</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="artigos-grid" style="padding: 0;">
+                    <div class="grid-container">
+                        <?php
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                        
+                        $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 12,
+                            'paged' => $paged,
+                            'orderby' => 'date',
+                            'order' => 'DESC'
+                        );
+                        
+                        $artigos_query = new WP_Query($args);
+                        
+                        if ($artigos_query->have_posts()) :
+                            while ($artigos_query->have_posts()) : $artigos_query->the_post();
+                                $categories = get_the_category();
+                                $cat_names = array();
+                                if ($categories) {
+                                    foreach ($categories as $cat) {
+                                        $cat_names[] = $cat->name;
+                                    }
+                                }
+                                $cat_list = !empty($cat_names) ? implode(', ', $cat_names) : 'Sem categoria';
+                                ?>
+                                
+                                <article class="artigo-card" data-category="<?php echo esc_attr(strtolower($categories[0]->slug ?? 'all')); ?>">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <div class="card-image">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <?php the_post_thumbnail('medium'); ?>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
+                                    
+                                    <div class="card-content">
+                                        <div class="card-meta">
+                                            <span class="meta-date"><?php echo get_the_date('d M Y'); ?></span>
+                                            <span class="meta-separator">•</span>
+                                            <span class="meta-category"><?php echo esc_html($cat_list); ?></span>
+                                        </div>
+                                        
+                                        <h2 class="card-title">
+                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        </h2>
+                                        
+                                        <div class="card-excerpt">
+                                            <?php echo wp_trim_words(get_the_excerpt(), 20); ?>
+                                        </div>
+                                        
+                                        <div class="card-footer">
+                                            <a href="<?php the_permalink(); ?>" class="read-more">Ler artigo →</a>
+                                            <span class="read-time"><?php echo function_exists('acu_estimated_reading_time') ? acu_estimated_reading_time() : '5'; ?> min</span>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                            <?php endwhile; ?>
+                            
+                            <div class="pagination-wrapper">
+                                <?php
+                                echo paginate_links(array(
+                                    'total' => $artigos_query->max_num_pages,
+                                    'current' => $paged,
+                                    'prev_text' => '← Anterior',
+                                    'next_text' => 'Próximo →',
+                                    'type' => 'list'
+                                ));
+                                ?>
+                            </div>
+                            
+                        <?php else : ?>
+                            
+                            <div class="no-posts">
+                                <div class="no-posts-icon">📝</div>
+                                <h3>Nenhum artigo encontrado</h3>
+                                <p>Ainda não há artigos publicados ou sua busca não retornou resultados.</p>
+                            </div>
+                            
+                        <?php endif; wp_reset_postdata(); ?>
+                    </div>
+                </section>
+            </div>
+
         </div>
     </main>
 
