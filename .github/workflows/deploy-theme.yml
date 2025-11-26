@@ -1,0 +1,164 @@
+name: Deploy WordPress Theme
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'theme/**'
+      - '.github/workflows/deploy-theme.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate PHP & Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install Composer Dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+      - name: PHP Lint
+        run: |
+          find theme -type f -name "*.php" -print0 | xargs -0 -I {} php -l {} | grep -v "No syntax errors" || true
+          # Fail if any syntax error
+          if find theme -type f -name "*.php" -print0 | xargs -0 -I {} php -l {} | grep -q "Errors parsing"; then
+            echo "Syntax errors detected"; exit 1; fi
+      - name: Basic Theme Checks
+        run: |
+          test -f theme/style.css || (echo "style.css não encontrado" && exit 1)
+          grep -q "Theme Name:" theme/style.css || (echo "Cabeçalho do tema ausente em style.css" && exit 1)
+      - name: Run PHPCS
+        run: vendor/bin/phpcs --standard=phpcs.xml theme || true
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install Node Dependencies
+        run: npm ci || npm install
+      - name: Stylelint CSS
+        run: npx stylelint 'theme/**/*.css'
+
+  build:
+    name: Build Theme Package
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create ZIP
+        run: |
+          mkdir -p build
+          zip -r build/otimiza-an-theme.zip theme
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: otimiza-an-theme
+          path: build/otimiza-an-theme.zip
+
+  deploy-ftp:
+    name: Deploy via FTP/FTPS
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: otimiza-an-theme
+          path: build
+      - name: Extract ZIP
+        run: unzip build/otimiza-an-theme.zip -d extracted
+      - name: Deploy (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.WP_FTP_SERVER }}
+          username: ${{ secrets.WP_FTP_USERNAME }}
+          password: ${{ secrets.WP_FTP_PASSWORD }}
+          protocol: ftps
+          port: ${{ secrets.WP_FTP_PORT }}
+          server-dir: ${{ secrets.WP_FTP_REMOTE_DIR }}
+          local-dir: extracted/theme
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+
+  deploy-ssh:
+    name: Deploy via SSH (rsync)
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ github.ref == 'refs/heads/main' && secrets.WP_SSH_HOST != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: otimiza-an-theme
+          path: build
+      - name: Extract ZIP
+        run: unzip build/otimiza-an-theme.zip -d extracted
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.WP_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          printf "Host remote\n  HostName ${{ secrets.WP_SSH_HOST }}\n  User ${{ secrets.WP_SSH_USER }}\n  StrictHostKeyChecking no\n" > ~/.ssh/config
+      - name: Rsync Theme
+        run: rsync -avz --delete extracted/theme/ remote:${{ secrets.WP_SSH_REMOTE_DIR }}
+
+  build-docker:
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+    needs: validate
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/otimiza-an-theme
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/otimiza-an-theme:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/otimiza-an-theme:buildcache,mode=max
+
+# Instruções de Secrets:
+# WP_FTP_SERVER       -> host FTP/FTPS
+# WP_FTP_USERNAME     -> usuário
+# WP_FTP_PASSWORD     -> senha
+# WP_FTP_REMOTE_DIR   -> diretório remoto onde o WordPress espera a pasta do tema (ex: wp-content/themes/otimiza-an-theme/)
+# WP_FTP_PORT         -> porta (opcional, default 21)
+# WP_SSH_HOST         -> host SSH (para rsync)
+# WP_SSH_USER         -> usuário SSH
+# WP_SSH_KEY          -> chave privada SSH (sem senha)
+# WP_SSH_REMOTE_DIR   -> diretório remoto do tema

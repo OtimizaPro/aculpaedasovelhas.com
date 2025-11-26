@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.github
+.ci
+
+# Documentation
+*.md
+README.md
+OTIMIZA-AN-AGENT.md
+PROJECT-STATUS.md
+API-KEYS.md
+
+# Environment files
+.env
+.env.*
+.vscode
+
+# Dependencies
+node_modules
+vendor
+
+# Build artifacts
+*.zip
+winscp
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Test files
+tests
+*.test.js
+*.spec.js
