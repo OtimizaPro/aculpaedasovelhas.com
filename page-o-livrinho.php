@@ -47,6 +47,48 @@
 
     <main id="leitura" class="livrinho-content">
         <div class="content-wrapper">
+            
+            <!-- Intro Text -->
+            <article class="livrinho-intro-text" style="max-width: 800px; margin: 0 auto 5rem; color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">
+                <h2 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 2rem; text-align: center;">🔐 Verdades Ocultas e verdades ocultadas</h2>
+                
+                <p>Por <strong>Verdades Ocultas</strong> eu chamo aquilo que fez parte do Plano de Deus para que a Obra dele, Jesus Cristo fosse Boa!</p>
+
+                <p>Parte central deste plano é a Revelação do Livrinho, aquele aberto na mão do Anjo que pisava sobre terra e água e as Mãos Levantaram aos Céus Jurando Juramento ao Eterno.</p>
+
+                <p>Teólogos, religiosos, pesquisadores, historiadores, fiéis, passaram os séculos que nos sucederam buscando explicação ou revelação para as profecias sobre os fins dos tempos. O que conhecemos como escatologia.</p>
+
+                <p>A escatologia se propõe portanto a isto, estudar as Revelações, as profecias para os chamados fins dos tempos. Neste sentido eu posso dizer que este é um Livro escatologico, me colocando portanto no centro das Revelações aqui contidas em decorrência dos estudos que realizei e que me propus a compartilhar nesta Obra. Entretanto, caso esta Obra seja considerada por você como Verdadeira, não tenha dúvida, o Verdadeiro Autor é o Espírito Santo, o Próprio Jesus Cristo e eu apenas o seu instrumento, assim como fora o Profeta João ao escrever (Ap), ou Em Verdade, o próprio Deus Vivo Jesus Cristo.</p>
+
+                <p>E como esta Obra fala de Revelação da Verdade, eis que aqui vai a primeira e mais importante de Todas. <strong>A Verdade sobre a Verdade!</strong></p>
+
+                <p>Caro Leitor, aqui eu te entrego a Primeira Chave desta Revelação sobre a Revelação. Ela foi entregue a mim, como dito, pelo Espírito que me Ordenou entregar a você!</p>
+
+                <p>Conheça esta Chave, reúna-a com as Demais Chaves e destranque baús de Tesouros e Portas de Conhecimento da Palavra Viva de Deus!</p>
+
+                <p>Esta Chave, pela implicação de sua relevância, por ser essencial para acesso ao conhecimento, foi escondida de você todo este tempo por satanás.</p>
+
+                <p>E não se engane, satanás possui inteligência e capacidades e estratagemas superiores às nossas capacidades humanas. Há apenas uma arma capaz de, empenhada por mãos humanas, derrotar este inimigo: e se chama <strong>Palavra Viva de Deus!</strong></p>
+
+                <p>É por isto que você foi enganado até aqui, satanás e Jesus disputaram uma disputa, guerrearam em Tabuleiro Celeste e terreno, mas o oponente do diabo é Implacável e o tempo dele esgotado!</p>
+
+                <p>O tempo está no fim, a hora é a última e por isto você receberá a Verdade Oculta e as Verdades Ocultadas sobre Revelação de Jesus.</p>
+
+                <p>Este é o tempo da Palavra Viva a Falar e eu e você somos muito abençoados por isto.</p>
+
+                <p>Você está com os ouvidos abertos? Então ouça o Espírito Soprando Através das Igrejas. Jesus Cristo está voltando, se prepare para que tudo vejas! E esta visão começa aqui, com este Livrinho, pequeno, mas muito Poderoso!</p>
+
+                <p>Nele eu irei entregar, através do meu testemunho sobre o Testemunho de Jesus, dois tipos de materiais úteis, duas ferramentas, uma armadura completa.</p>
+
+                <p>São elas <strong>frameworks</strong> e <strong>Chaves</strong>.</p>
+
+                <p>Os frameworks se dividem em dois tipos, defensivos e ofensivos e ambos pertencem às bestas, besta da terra e besta do mar.</p>
+
+                <p>Já as <strong style="color: var(--accent);">{Chaves}</strong> estas são Únicas e pertencem a JESUS CRISTO que as concede a mim e a você agora.</p>
+            </article>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 0 auto 4rem; max-width: 200px;">
+
             <div class="ms-page-header" style="text-align: center; margin-bottom: 4rem;">
                 <h2>Os 4 Pilares</h2>
                 <p class="ms-subtitle" style="margin: 0 auto;">A estrutura fundamental da mensagem.</p>
