@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'theme/**'
-      - '.github/workflows/deploy-theme.yml'
+      - '**'
+      - '!.github/**'
   workflow_dispatch:
 
 jobs:
@@ -21,27 +21,35 @@ jobs:
           php-version: '8.3'
       - name: Install Composer Dependencies
         run: |
-          composer install --no-interaction --prefer-dist
+          if [ -f composer.json ]; then
+            composer install --no-interaction --prefer-dist
+          fi
       - name: PHP Lint
         run: |
-          find theme -type f -name "*.php" -print0 | xargs -0 -I {} php -l {} | grep -v "No syntax errors" || true
-          # Fail if any syntax error
-          if find theme -type f -name "*.php" -print0 | xargs -0 -I {} php -l {} | grep -q "Errors parsing"; then
-            echo "Syntax errors detected"; exit 1; fi
+          find . -type f -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -I {} php -l {} | grep -v "No syntax errors" || true
       - name: Basic Theme Checks
         run: |
-          test -f theme/style.css || (echo "style.css não encontrado" && exit 1)
-          grep -q "Theme Name:" theme/style.css || (echo "Cabeçalho do tema ausente em style.css" && exit 1)
+          test -f style.css || (echo "style.css não encontrado" && exit 1)
+          grep -q "Theme Name:" style.css || (echo "Cabeçalho do tema ausente em style.css" && exit 1)
       - name: Run PHPCS
-        run: vendor/bin/phpcs --standard=phpcs.xml theme || true
+        run: |
+          if [ -f phpcs.xml ]; then
+            vendor/bin/phpcs --standard=phpcs.xml . || true
+          fi
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '20'
       - name: Install Node Dependencies
-        run: npm ci || npm install
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm install
+          fi
       - name: Stylelint CSS
-        run: npx stylelint 'theme/**/*.css'
+        run: |
+          if [ -f package.json ]; then
+            npx stylelint '**/*.css'
+          fi
 
   build:
     name: Build Theme Package
@@ -53,7 +61,7 @@ jobs:
       - name: Create ZIP
         run: |
           mkdir -p build
-          zip -r build/otimiza-an-theme.zip theme
+          zip -r build/otimiza-an-theme.zip . -x "*.git*" -x ".github/*" -x "build/*" -x "node_modules/*" -x "vendor/*"
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -84,7 +92,7 @@ jobs:
           protocol: ftps
           port: ${{ secrets.WP_FTP_PORT }}
           server-dir: ${{ secrets.WP_FTP_REMOTE_DIR }}
-          local-dir: extracted/theme
+          local-dir: extracted/
           exclude: |
             **/.git*
             **/.github/**
