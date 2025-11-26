@@ -1,4 +1,5 @@
 <?php
+/* LEITURA OBRIGATÓRIA: ./DEFINICOES_DO_PROJETO.md */
 
 require_once __DIR__ . '/includes/bible-system.php';
 

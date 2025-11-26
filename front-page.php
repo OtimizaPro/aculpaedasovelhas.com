@@ -1,4 +1,5 @@
 <?php
+/* LEITURA OBRIGATÓRIA: ./DEFINICOES_DO_PROJETO.md */
 /**
  * Template: Front Page
  * Description: Microsoft Account Inspired Layout
