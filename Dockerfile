@@ -16,13 +16,13 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     && mv wp-cli.phar /usr/local/bin/wp
 
 # Copiar tema para o container
-COPY theme/ /var/www/html/wp-content/themes/otimiza-an-theme/
+COPY . /var/www/html/wp-content/themes/aculpaedasovelhas/
 
 # Definir permissões corretas
-RUN chown -R www-data:www-data /var/www/html/wp-content/themes/otimiza-an-theme
+RUN chown -R www-data:www-data /var/www/html/wp-content/themes/aculpaedasovelhas
 
 # Instalar dependências do tema
-WORKDIR /var/www/html/wp-content/themes/otimiza-an-theme
+WORKDIR /var/www/html/wp-content/themes/aculpaedasovelhas
 RUN composer install --no-dev --optimize-autoloader || true
 
 # Voltar ao diretório padrão
