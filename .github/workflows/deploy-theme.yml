@@ -69,7 +69,7 @@ jobs:
           path: build/otimiza-an-theme.zip
 
   deploy-ftp:
-    name: Deploy via FTP/FTPS
+    name: Deploy via SFTP
     runs-on: ubuntu-latest
     needs: build
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -97,30 +97,6 @@ jobs:
             **/.git*
             **/.github/**
             **/node_modules/**
-
-  deploy-ssh:
-    name: Deploy via SSH (rsync)
-    runs-on: ubuntu-latest
-    needs: build
-    if: ${{ github.ref == 'refs/heads/main' && secrets.WP_SSH_HOST != '' }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: otimiza-an-theme
-          path: build
-      - name: Extract ZIP
-        run: unzip build/otimiza-an-theme.zip -d extracted
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.WP_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          printf "Host remote\n  HostName ${{ secrets.WP_SSH_HOST }}\n  User ${{ secrets.WP_SSH_USER }}\n  StrictHostKeyChecking no\n" > ~/.ssh/config
-      - name: Rsync Theme
-        run: rsync -avz --delete extracted/theme/ remote:${{ secrets.WP_SSH_REMOTE_DIR }}
 
   build-docker:
     name: Build & Push Docker Image
