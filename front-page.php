@@ -2,7 +2,7 @@
 /* LEITURA OBRIGATÓRIA: ./DEFINICOES_DO_PROJETO.md */
 /**
  * Template: Front Page
- * Description: Microsoft Account Inspired Layout
+ * Builds the Thesis-inspired hero banner.
  */
 ?>
 <!DOCTYPE html>
@@ -10,89 +10,49 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php bloginfo('name'); ?> | Painel</title>
+    <title><?php bloginfo('name'); ?> | Manifesto</title>
     <link rel="stylesheet" href="<?php echo esc_url(get_stylesheet_uri()); ?>">
     <?php wp_head(); ?>
 </head>
-<body <?php body_class('ms-account-page'); ?>>
-
-    <header class="ms-header">
-        <div class="ms-header-content">
-            <div class="ms-logo">
-                <a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+<body <?php body_class(); ?>>
+    <section class="hero-banner">
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <span class="hero-pill">Manifesto vivo · 2025</span>
+                <h1>A Culpa é das Ovelhas</h1>
+                <p>Revelação, tecnologia e responsabilidade civil alinhadas para despertar consciências e reescrever sistemas injustos.</p>
+                <ul class="hero-highlights">
+                    <li>📜 Tradução proprietária e comentada da Revelação</li>
+                    <li>🧠 Frameworks contestados com provas e contexto</li>
+                    <li>🤖 AN Agent conduzindo estudos assistidos por IA</li>
+                </ul>
+                <div class="hero-ctas">
+                    <a class="btn-hero-primary" href="<?php echo esc_url(home_url('/o-livrinho')); ?>">Ler o Manifesto</a>
+                    <a class="btn-hero-secondary" href="<?php echo esc_url(home_url('/artigos')); ?>">Artigos</a>
+                    <a class="btn-hero-secondary" href="<?php echo esc_url(home_url('/biblia')); ?>">Bíblia Online</a>
+                </div>
             </div>
-            <div class="ms-user-menu">
-                <!-- Placeholder for user icon -->
-                <div class="ms-user-avatar"></div>
-            </div>
+            <aside class="hero-panel" aria-label="Indicadores do manifesto">
+                <div class="hero-panel-header">
+                    <span>Radar Espiritual</span>
+                    <strong>Tempo Real</strong>
+                </div>
+                <div class="hero-panel-body">
+                    <div class="panel-stat">
+                        <span class="stat-label">Capítulos Comentados</span>
+                        <strong>31</strong>
+                    </div>
+                    <div class="panel-stat">
+                        <span class="stat-label">Frameworks Contestados</span>
+                        <strong>07</strong>
+                    </div>
+                    <div class="panel-divider"></div>
+                    <p class="panel-note">“A Verdade não negocia.” Atualizações semanais com novas notas, traduções e chaves estratégicas para a comunidade.</p>
+                </div>
+            </aside>
         </div>
-    </header>
-
-    <main class="ms-main-content">
-        <div class="ms-content-wrapper">
-            <div class="ms-page-header">
-                <h1>Bem-vindo ao seu painel</h1>
-                <p class="ms-subtitle">Gerencie seu conteúdo, explore as ferramentas e acompanhe o desenvolvimento do manifesto.</p>
-            </div>
-
-            <div class="ms-card-grid">
-                <div class="ms-card">
-                    <div class="ms-card-icon">📜</div>
-                    <div class="ms-card-content">
-                        <h3>O Livrinho</h3>
-                        <p>Acesse o manifesto completo, com todas as chaves e revelações.</p>
-                        <a href="<?php echo esc_url(home_url('/o-livrinho')); ?>" class="ms-card-link">Ler agora &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="ms-card">
-                    <div class="ms-card-icon">📰</div>
-                    <div class="ms-card-content">
-                        <h3>Artigos Recentes</h3>
-                        <p>Explore os últimos estudos, contestações e insights publicados.</p>
-                        <a href="<?php echo esc_url(home_url('/artigos')); ?>" class="ms-card-link">Ver todos &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="ms-card">
-                    <div class="ms-card-icon">📖</div>
-                    <div class="ms-card-content">
-                        <h3>Bíblia Online</h3>
-                        <p>Navegue pela tradução proprietária e comentada da Revelação.</p>
-                        <a href="<?php echo esc_url(home_url('/biblia')); ?>" class="ms-card-link">Acessar a Bíblia &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="ms-card">
-                    <div class="ms-card-icon">🤖</div>
-                    <div class="ms-card-content">
-                        <h3>AN Agent</h3>
-                        <p>Interaja com a IA para estudos assistidos e aprofundados.</p>
-                        <a href="<?php echo esc_url(home_url('/an-agent')); ?>" class="ms-card-link">Ativar AN Agent &rarr;</a>
-                    </div>
-                </div>
-                
-                <div class="ms-card">
-                    <div class="ms-card-icon">✉️</div>
-                    <div class="ms-card-content">
-                        <h3>Contato</h3>
-                        <p>Envie suas perguntas, sugestões ou feedback para a equipe.</p>
-                        <a href="#" class="ms-card-link">Entrar em contato &rarr;</a>
-                    </div>
-                </div>
-
-                 <div class="ms-card">
-                    <div class="ms-card-icon">⚙️</div>
-                    <div class="ms-card-content">
-                        <h3>Em Breve</h3>
-                        <p>Novas ferramentas e seções serão adicionadas aqui.</p>
-                        <a href="#" class="ms-card-link">Saiba mais &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
+        <div class="hero-noise" aria-hidden="true"></div>
+    </section>
     <?php wp_footer(); ?>
 </body>
 </html>
