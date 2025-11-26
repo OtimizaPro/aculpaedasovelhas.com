@@ -37,3 +37,34 @@
 **Observações:**
 
 - (anotar qualquer erro, correção rápida, ajuste de menu, etc.)
+
+## Deploy 2025-02-20 – Novo Layout Microsoft Account
+
+**Data/Hora:** 2025-02-20
+**Responsável:** GitHub Copilot
+**Ambiente:** Produção
+**Site:** <https://aculpaedasovelhas.com>
+
+**Branch:** main
+**Commit(s):** c9d69f9 (Bump version), 09e8c18 (Force front-page.php)
+
+**Escopo do deploy:**
+
+- Substituição completa do layout da Home (`front-page.php`) pelo novo design estilo "Microsoft Account".
+- Criação de `page-painel.php` como template alternativo.
+- Atualização de `style.css` com novas variáveis e classes (`.ms-*`).
+- Bump de versão do tema para 0.2.0.
+
+**Passos executados:**
+
+- `git push origin main`
+- Tentativa de forçar atualização via `front-page.php` direto.
+
+**Resultado:**
+
+- [x] Código enviado para repositório.
+- [ ] Validação visual pendente (aguardando propagação/cache).
+
+**Observações:**
+
+- O site pode apresentar cache agressivo. Se o layout não mudar, verificar configurações de cache no servidor ou plugin.
