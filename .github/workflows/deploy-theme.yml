@@ -83,13 +83,13 @@ jobs:
           path: build
       - name: Extract ZIP
         run: unzip build/otimiza-an-theme.zip -d extracted
-      - name: Deploy (FTP)
+      - name: Deploy (SFTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.WP_FTP_SERVER }}
           username: ${{ secrets.WP_FTP_USERNAME }}
           password: ${{ secrets.WP_FTP_PASSWORD }}
-          protocol: ftps
+          protocol: sftp
           port: ${{ secrets.WP_FTP_PORT }}
           server-dir: ${{ secrets.WP_FTP_REMOTE_DIR }}
           local-dir: extracted/
