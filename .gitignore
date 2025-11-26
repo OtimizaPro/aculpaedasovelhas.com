@@ -1,0 +1,39 @@
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Credentials & Secrets
+.env
+*.pem
+*.key
+*.p12
+
+# Local development
+__azurite_db_*.json
+__blobstorage__/
+__queuestorage__/
+node_modules/
+.vs/
+.vscode/settings.json
+
+# Build artifacts
+*.zip
+winscp/
+winscp-portable.zip
+
+# Temporary files
+*.log
+*.bat
+run-ssh.bat
+ssh-activate.txt
+psftp.exe
+plink.exe
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
