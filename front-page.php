@@ -27,9 +27,9 @@
                     <li>🤖 AN Agent conduzindo estudos assistidos por IA</li>
                 </ul>
                 <div class="hero-ctas">
-                    <a class="btn-hero-primary" href="<?php echo esc_url(home_url('/o-livrinho')); ?>">Ler o Manifesto</a>
+                    <a class="btn-hero-primary" href="<?php echo esc_url(home_url('/o-livrinho')); ?>">O Livrinho</a>
+                    <a class="btn-hero-secondary" href="<?php echo esc_url(home_url('/manifesto')); ?>">Ler Manifesto</a>
                     <a class="btn-hero-secondary" href="<?php echo esc_url(home_url('/artigos')); ?>">Artigos</a>
-                    <a class="btn-hero-secondary" href="<?php echo esc_url(home_url('/biblia')); ?>">Bíblia Online</a>
                 </div>
             </div>
             <aside class="hero-panel" aria-label="Indicadores do manifesto">
