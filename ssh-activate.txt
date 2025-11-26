@@ -1,0 +1,3 @@
+wp theme activate aculpaedasovelhas
+wp cache flush
+exit
