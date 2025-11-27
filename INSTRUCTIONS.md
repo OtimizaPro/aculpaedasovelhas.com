@@ -30,6 +30,7 @@
     - INSTRUCTION's CODE CORE
     - VSCODE PROJECT 
     - SITE-ACULPAEDASOVELHAS
+    - `Documentação/system_core_manifest.json` (manifesto técnico com stack, infraestrutura e protocolo de deploy GitHub → WordPress)
 
 ---
 

@@ -10,11 +10,6 @@ get_header();
 
 <!-- HERO SECTION [01/05] -->
 <section class="hero section" id="hero">
-    <div class="section-indicator">
-        <span class="section-number">[01/05]</span>
-        <span class="section-label">HERO</span>
-    </div>
-    
     <div class="hero-content">
         <p class="hero-subtitle animate-fade-in-up">Revelacao & Responsabilidade Civil</p>
         
@@ -40,11 +35,6 @@ get_header();
 
 <!-- INTRO SECTION [02/05] -->
 <section class="section section--auto intro-section" id="intro">
-    <div class="section-indicator">
-        <span class="section-number">[02/05]</span>
-        <span class="section-label">INTRO</span>
-    </div>
-    
     <div class="container">
         <div class="intro-grid">
             <div class="intro-text">
@@ -98,11 +88,6 @@ get_header();
 
 <!-- STACK SECTION [03/05] -->
 <section class="section section--auto stack-section" id="stack">
-    <div class="section-indicator">
-        <span class="section-number">[03/05]</span>
-        <span class="section-label">CONTEUDO</span>
-    </div>
-    
     <div class="container">
         <div class="stack-header">
             <h2 class="display-md">O que voce encontra aqui</h2>
@@ -145,11 +130,6 @@ get_header();
 
 <!-- VISION SECTION [04/05] -->
 <section class="section vision-section" id="vision">
-    <div class="section-indicator">
-        <span class="section-number">[04/05]</span>
-        <span class="section-label">VISAO</span>
-    </div>
-    
     <div class="container">
         <div class="vision-content">
             <h2 class="display-md">Para os que tem<br>ouvidos para ouvir</h2>
@@ -170,11 +150,6 @@ get_header();
 
 <!-- LATEST POSTS [05/05] -->
 <section class="section section--auto" id="posts" style="background: var(--bg-secondary);">
-    <div class="section-indicator">
-        <span class="section-number">[05/05]</span>
-        <span class="section-label">ARTIGOS</span>
-    </div>
-    
     <div class="container">
         <div class="stack-header">
             <h2 class="display-md">Ultimas publicacoes</h2>

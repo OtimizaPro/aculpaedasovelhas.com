@@ -1,0 +1,38 @@
+$content = @'
+{
+  "meta_data": {
+    "project_name": "A Culpa é Das Ovelhas",
+    "version": "1.0.0",
+    "last_updated": "2025-11-27",
+    "maintainer_intent": "Documentação centralizada de arquitetura, stack e resolução de problemas para reduzir fricção futura."
+  },
+  "resources": {
+    "tech_stack": {
+      "language_core": [
+        { "name": "Exemplo: Python/Node", "version": "x.x", "role": "Backend/Frontend" }
+      ],
+      "frameworks": [],
+      "database": {},
+      "tools": {}
+    },
+    "infrastructure": {
+      "host": "",
+      "deploy_method": ""
+    }
+  },
+  "troubleshooting_log": [
+    {
+      "comment": "Este array deve ser preenchido com objetos contendo: id, date, error_signature, root_cause e solution_implemented."
+    }
+  ],
+  "procedures": {
+    "deploy_protocol": {
+      "steps": [],
+      "requirements": []
+    }
+  }
+}
+'@
+
+$content | Out-File -FilePath "system_core_manifest.json" -Encoding utf8
+Write-Host "Template do Diário de Bordo (system_core_manifest.json) para 'A Culpa é Das Ovelhas' criado com sucesso!" -ForegroundColor Green

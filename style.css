@@ -319,34 +319,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION INDICATOR (CoreNest style [01/05])
-   ═══════════════════════════════════════════════════════════════ */
-
-.section-indicator {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.section-number {
-    font-family: var(--font-sans);
-    font-weight: 500;
-}
-
-.section-label {
-    padding: 0.25rem 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-}
-
-/* ═══════════════════════════════════════════════════════════════
    HERO SECTION
    ═══════════════════════════════════════════════════════════════ */
 
