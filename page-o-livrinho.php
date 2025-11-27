@@ -89,6 +89,106 @@
             
             <hr style="border: 0; border-top: 1px solid var(--border); margin: 0 auto 4rem; max-width: 200px;">
 
+            <!-- Deep Dive Text -->
+            <article class="livrinho-deep-dive" style="max-width: 800px; margin: 0 auto 5rem; color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">
+                <h2 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 2rem; text-align: center;">Texto da subpágina O “Livrinho”</h2>
+
+                <p>O “Livrinho”, (βιβλαρίδιον), nome por mim dado a esta Obra, faz referência e paralelismo ao Texto original de “A Revelação de Jesus Cristo”, o Livro da Palavra Direta de Jesus Cristo — aquele que muitos chamam, por engano do grande engano, de (Ap).</p>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-left: 4px solid var(--accent); margin: 2rem 0; border-radius: 4px;">
+                    <h4 style="color: var(--accent); margin-top: 0;">📌 Nota Técnica:</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.5rem;">1. → (Ap) “(Ap) foi mantido neste Livrinho como ref. ao Livro Sagrado “Revelação de Jesus Cristo”, pois a maioria das Bíblias impressas e/ou digitais adota essa forma em todo o Mundo.”</li>
+                        <li style="margin-bottom: 0.5rem;">2. → βιβλαρίδιον (biblarídion) é o diminutivo de βιβλίον (biblíon), significando literalmente “Livrinho” ou “Pequeno Livro”.</li>
+                        <li style="margin-bottom: 0.5rem;">3. → O termo ocorre em “Revelação de Jesus Cristo” 10:2, 8, 9, 10.</li>
+                        <li>4. → No contexto, o Livrinho representa uma revelação específica que João deve comer e profetizar novamente (Ap 10:9-11).</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 3rem 0;">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem;">📖📖📖</h3>
+                    <blockquote style="border-left: 2px solid var(--border); padding-left: 1.5rem; font-style: italic; margin: 0;">
+                        <p>“E vi outro anjo forte descendo do céu, envolto em nuvem, e o arco-íris sobre a cabeça dele, e o rosto dele como o sol, e os pés dele como colunas de fogo; e tendo em a mão dele um livrinho aberto; e pôs o pé dele o direito sobre o mar, o porém esquerdo sobre a terra; e clamou com voz grande como ruge leão; e quando clamou, falaram as sete trovoadas as vozes delas.</p>
+                        
+                        <p>E quando falaram as sete trovoadas, eu estava prestes a escrever; e ouvi voz do céu dizendo: Sela o que falaram as sete trovoadas, e não escrevas isto.</p>
+                        
+                        <p>E o anjo que vi estar sobre o mar e sobre a terra levantou a mão dele direita ao céu, e jurou por Aquele que vive pelos séculos dos séculos, que criou o céu e o que nele há, e a terra e o que nela há, e o mar e o que nele há, que tempo já não haverá; mas nos dias da voz do sétimo anjo, quando estiver para tocar a trombeta, consumar-se-á o mistério de Deus, como anunciou aos servos Dele, os profetas.</p>
+                        
+                        <p>E a voz que ouvi do céu falou comigo novamente e disse: Vai, toma o livrinho aberto na mão do anjo que está sobre o mar e sobre a terra.</p>
+                        
+                        <p>E fui ao anjo, dizendo-lhe que me desse o livrinho; e ele me diz: Toma e come-o, e amargará o ventre teu, mas na boca tua será doce como mel. E tomei o livrinho da mão do anjo e o comi, e era na boca minha doce como mel; e quando o comi, o ventre meu se tornou amargo. E dizem-me: É necessário que profetizes novamente acerca de povos, e nações, e línguas, e reis muitos.</p>
+                        <footer style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">📖 “A Revelação de Jesus Cristo” 📜 10:2 (NA28)</footer>
+                    </blockquote>
+                </div>
+
+                <p style="background: rgba(250, 204, 21, 0.1); padding: 1rem; border-radius: 4px;"><strong>📌 Nota:</strong> O Livrinho na mão do Anjo, do próprio Deus, pois era ele Jesus, é parte central é a própria “Revelação de Jesus Cristo”, transmitido diretamente ao Profeta João é transmitido por mim aqui na Série “O Livrinho - A Culpa é das Ovelhas” por interpretação textual e análise inspirada.</p>
+
+                <h3 style="color: var(--text-primary); margin-top: 3rem;">Desvelando Palavras desta Profecia</h3>
+                <p>📖 “E vi outro anjo forte descendo do céu, envolto em nuvem, e o arco-íris sobre a cabeça dele, e o rosto dele como o sol, e os pés dele como colunas de fogo; e tendo em a mão dele um livrinho aberto; e pôs o pé dele o direito sobre o mar, o porém esquerdo sobre a terra; e clamou com voz grande como ruge leão; e quando clamou, falaram as sete trovoadas as vozes delas.</p>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-left: 4px solid var(--accent); margin: 2rem 0; border-radius: 4px;">
+                    <h4 style="color: var(--accent); margin-top: 0;">📌 Interpretação:</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Anjo Forte descendo do Céu, envolto em nuvem</strong> = Jesus</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>arco-íris</strong> = Aliança com Noé</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>rosto dele como o sol</strong> = Rosto de Jesus Glorificado</li>
+                        <li><strong>pés dele como colunas de fogo</strong> = Aponta para Jesus; Ele esteve na fornalha, sendo o quarto homem junto de Hananias (Sadraque), Misael (Mesaque) e Azarias (Abede-Nego)</li>
+                    </ul>
+                </div>
+
+                <p>📌 “E vi Jesus carregando a aliança com Noé, e o rosto dele como o sol, e os pés dele como colunas de fogo; e tendo em a mão dele um livrinho aberto; e pôs o pé dele o direito sobre o mar, o porém esquerdo sobre a terra; e clamou com voz grande como ruge leão; e quando clamou, falaram as sete trovoadas as vozes delas.</p>
+
+                <p>E quando falaram as sete trovoadas, eu estava prestes a escrever; e ouvi voz do céu dizendo: Sela o que falaram as sete trovoadas, e não escrevas isto.</p>
+
+                <h3 style="color: var(--text-primary); margin-top: 4rem; text-align: center;">Nota final sobre este Livrinho</h3>
+                
+                <p>E disse o Senhor aos fariseus:</p>
+                
+                <blockquote style="border-left: 2px solid var(--border); padding-left: 1.5rem; font-style: italic; margin: 1.5rem 0;">
+                    <p>“Diz-nos, pois, o que te parece: É lícito pagar tributo a César ou não?<br>
+                    Jesus, porém, conhecendo-lhes a malícia, respondeu: Por que me experimentais, hipócritas? Mostrai-me a moeda do tributo.<br>
+                    Trouxeram-lhe um denário.<br>
+                    E perguntou-lhes: De quem é esta imagem e inscrição?<br>
+                    Responderam: De César.<br>
+                    Então lhes disse: Dai, pois, a César o que é de César e a Deus o que é de Deus.<br>
+                    Ouvindo isso, ficaram admirados e, deixando-o, retiraram-se.”</p>
+                </blockquote>
+
+                <p>Então digo eu, e dizendo: Entreguemos ao homem da iniquidade o que é dele, pois quem rouba a Noiva merece o castigo que vem.</p>
+                
+                <ul style="list-style: none; padding: 0; margin: 1.5rem 0; color: var(--accent);">
+                    <li>— Emerge a besta-do-mar — Revelação 13</li>
+                    <li>— As Quatro Bestas de Daniel — Daniel 7, Revelação 13</li>
+                    <li>— Desvelado o Enigma 666 — Revelação 13</li>
+                    <li>— Um apóstolo, sim, a besta-do-mar; não Judas, mas o próprio diabo — Revelação 13, Atos 1</li>
+                </ul>
+
+                <p>Pedi ao Espírito que também me permita desvelar estes pontos, pois entendi que, em breve, tais achados serão encontrados por arqueólogos, cientistas, historiadores. Eles encontrarão papiros, pergaminhos, pedras, Palavras.</p>
+
+                <p>Eles são usados por Deus para nos servir às Novas Antigas Palavras. Elas permaneceram seladas por Cristo até os dias de hoje, para que no Ano, Dia, Hora e Minuto exatos fossem soltas e cumprissem o seu cumprimento. Entendi também que estes novos antigos achados não refutarão, mas confirmarão as Palavras Reveladas por Cristo neste Livrinho Revelador.</p>
+
+                <p>Pois esta Obra só foi possível mediante as Revelações que me foram entregues — ao meu pedido pedinte, à minha insistência insistente — até que o Espírito Santo determinou que eu, anderson belem costa, as entendesse e as compartilhasse com meus irmãos e irmãs em todo o mundo.</p>
+
+                <p>Vivemos uma época gloriosa, em que a comunicação — placa-mãe das sociedades — alcança seu momento mais acessível e uno, onde muitos falam para muitos, e onde o Branco da Verdade cavalgará vitorioso e vencerá sobre o Arco da Aliança, diante da escuridão do engano que vivenciamos.</p>
+
+                <p>Este é o tempo em que podemos falar muito e a muitos povos, nações e línguas, tão feroz e veloz quanto o Trovão que percorre o mundo, mais rápido que o vento que venta nos quatro cantos da terra.</p>
+
+                <p>Nestes tempos em que fala o Trovão, nenhuma outra informação será mais veiculada, compartilhada, lida, falada e ouvida do que a Palavra Viva — pois Viva sendo, Viveu para aqui estar.</p>
+
+                <p>Por Jesus Cristo, o Único e Eterno Deus Vivo, Rei dos Exércitos, toda a honra e toda a glória. Peço a Deus que nossa fé se mantenha diante dos novos achados historicistas que serão encontrados.</p>
+
+                <p style="text-align: center; font-size: 1.2rem; margin-top: 3rem;">
+                    Ela,<br>
+                    a Palavra,<br>
+                    Esteve,<br>
+                    Está e Estará,<br>
+                    e em Breve, para Sempre.<br>
+                    <strong style="color: var(--accent); font-size: 1.5rem; display: block; margin-top: 1rem;">Amém!</strong>
+                </p>
+            </article>
+
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 0 auto 4rem; max-width: 200px;">
+
             <div class="ms-page-header" style="text-align: center; margin-bottom: 4rem;">
                 <h2>Os 4 Pilares</h2>
                 <p class="ms-subtitle" style="margin: 0 auto;">A estrutura fundamental da mensagem.</p>
