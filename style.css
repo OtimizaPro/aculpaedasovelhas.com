@@ -852,3 +852,11 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
 }
+
+/* Hide WordPress.com gifting banner injected on managed plans */
+#wpcom-gifting-banner,
+.wpcom-gifting-banner,
+.wpcom-gifting-upsell,
+.wpcom-concierge-banner {
+    display: none !important;
+}

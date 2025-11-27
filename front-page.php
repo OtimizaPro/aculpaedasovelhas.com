@@ -6,6 +6,15 @@
  */
 
 get_header();
+
+// Helper keeps homepage CTAs working even if WP slugs change later.
+if (!function_exists('aco_get_page_link')) {
+    function aco_get_page_link($slug, $fallback = '/')
+    {
+        $page = get_page_by_path($slug);
+        return $page ? get_permalink($page->ID) : home_url($fallback);
+    }
+}
 ?>
 
 <!-- HERO SECTION [01/05] -->
@@ -23,10 +32,10 @@ get_header();
         </p>
         
         <div class="hero-ctas animate-fade-in-up animate-delay-3">
-            <a href="<?php echo esc_url(home_url('/manifesto')); ?>" class="btn btn--primary">
+            <a href="<?php echo esc_url(aco_get_page_link('manifesto', '/manifesto')); ?>" class="btn btn--primary">
                 Leia o Manifesto
             </a>
-            <a href="<?php echo esc_url(home_url('/o-livrinho')); ?>" class="btn btn--outline">
+            <a href="<?php echo esc_url(aco_get_page_link('o-livrinho', '/o-livrinho')); ?>" class="btn btn--outline">
                 Baixar O Livrinho
             </a>
         </div>
@@ -96,7 +105,7 @@ get_header();
                     Este projeto nasceu da necessidade de revelar o que foi escondido. 
                     De trazer a luz verdades que libertam - para aqueles que estao prontos para ouvir.
                 </p>
-                <a href="<?php echo esc_url(home_url('/o-autor')); ?>" class="btn btn--ghost">
+                <a href="<?php echo esc_url(aco_get_page_link('o-autor', '/o-autor')); ?>" class="btn btn--ghost">
                     Conheca o Autor →
                 </a>
             </div>
@@ -145,7 +154,7 @@ get_header();
         
         <div class="stack-grid">
             <!-- Card 1: O Livrinho -->
-            <a href="<?php echo esc_url(home_url('/o-livrinho')); ?>" class="stack-card">
+            <a href="<?php echo esc_url(aco_get_page_link('o-livrinho', '/o-livrinho')); ?>" class="stack-card">
                 <div class="stack-card-icon">📖</div>
                 <h3>O Livrinho</h3>
                 <p>
@@ -155,7 +164,7 @@ get_header();
             </a>
             
             <!-- Card 2: Biblia Online -->
-            <a href="<?php echo esc_url(home_url('/biblia')); ?>" class="stack-card">
+            <a href="<?php echo esc_url(aco_get_page_link('biblia', '/biblia')); ?>" class="stack-card">
                 <div class="stack-card-icon">📜</div>
                 <h3>Biblia Online</h3>
                 <p>
@@ -165,7 +174,7 @@ get_header();
             </a>
             
             <!-- Card 3: Artigos -->
-            <a href="<?php echo esc_url(home_url('/artigos')); ?>" class="stack-card">
+            <a href="<?php echo esc_url(aco_get_page_link('artigos', '/artigos')); ?>" class="stack-card">
                 <div class="stack-card-icon">✍️</div>
                 <h3>Artigos</h3>
                 <p>
@@ -190,7 +199,7 @@ get_header();
                 Se voce chegou ate aqui, talvez seja hora de descobrir o que esta por tras 
                 do veu que cobre nossos olhos.
             </p>
-            <a href="<?php echo esc_url(home_url('/manifesto')); ?>" class="btn btn--outline">
+            <a href="<?php echo esc_url(aco_get_page_link('manifesto', '/manifesto')); ?>" class="btn btn--outline">
                 Leia o Manifesto Completo
             </a>
         </div>
@@ -249,7 +258,7 @@ get_header();
         </div>
         
         <div style="text-align: center; margin-top: 3rem;">
-            <a href="<?php echo esc_url(home_url('/artigos')); ?>" class="btn btn--outline">
+            <a href="<?php echo esc_url(aco_get_page_link('artigos', '/artigos')); ?>" class="btn btn--outline">
                 Ver todos os artigos
             </a>
         </div>
