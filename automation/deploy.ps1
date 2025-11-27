@@ -88,6 +88,12 @@ function Deploy-SFTP {
     
     # Usando WinSCP CLI se disponivel
     $winscpPath = "C:\Program Files (x86)\WinSCP\WinSCP.com"
+    if (-not (Test-Path $winscpPath)) {
+        $localWinScp = Join-Path $ProjectRoot "winscp/extracted/WinSCP.com"
+        if (Test-Path $localWinScp) {
+            $winscpPath = $localWinScp
+        }
+    }
     if (Test-Path $winscpPath) {
         $scriptContent = @"
 open sftp://${ftpUser}:${ftpPass}@${ftpServer}:${ftpPort}/ -hostkey=*
