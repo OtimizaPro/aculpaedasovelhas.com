@@ -31,6 +31,7 @@
     - VSCODE PROJECT 
     - SITE-ACULPAEDASOVELHAS
     - `Documentação/system_core_manifest.json` (manifesto técnico com stack, infraestrutura e protocolo de deploy GitHub → WordPress)
+- **Após QUALQUER correção, atualização ou construção (design, texto, estrutura, scripts, etc.) o Agent deve obrigatoriamente realizar um Deploy completo (push + pipeline) antes de encerrar a tarefa ou responder ao User.**
 
 ---
 
