@@ -1,14 +1,29 @@
-name: Deploy WordPress Theme
+name: Deploy WordPress Theme - A Culpa é das Ovelhas
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      deploy_pages:
+        description: 'Criar/Atualizar páginas WordPress'
+        required: false
+        default: 'true'
+        type: boolean
+      clear_cache:
+        description: 'Limpar cache do WordPress'
+        required: false
+        default: 'true'
+        type: boolean
+
+env:
+  THEME_NAME: aculpa-theme
+  SITE_URL: https://aculpaedasovelhas.com
 
 jobs:
   validate:
-    name: Validate PHP & Structure
+    name: 🔍 Validate PHP & Structure
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,23 +34,18 @@ jobs:
         with:
           php-version: '8.3'
       
-      - name: Install Composer Dependencies
-        run: |
-          if [ -f composer.json ]; then
-            composer install --no-interaction --prefer-dist
-          fi
-      
       - name: PHP Lint
         run: |
           find . -type f -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -I {} php -l {} | grep -v "No syntax errors" || true
 
-      - name: Basic Theme Checks
+      - name: Theme Checks
         run: |
-          test -f style.css || (echo "style.css não encontrado" && exit 1)
-          grep -q "Theme Name:" style.css || (echo "Cabeçalho do tema ausente em style.css" && exit 1)
+          test -f style.css || (echo "❌ style.css não encontrado" && exit 1)
+          grep -q "Theme Name:" style.css || (echo "❌ Cabeçalho do tema ausente" && exit 1)
+          echo "✅ Validação concluída"
 
   build:
-    name: Build Theme Package
+    name: 📦 Build Theme Package
     runs-on: ubuntu-latest
     needs: validate
     steps:
@@ -45,85 +55,176 @@ jobs:
       - name: Create ZIP
         run: |
           mkdir -p build
-          zip -r build/otimiza-an-theme.zip . -x "*.git*" -x ".github/*" -x "build/*" -x "node_modules/*" -x "vendor/*"
+          zip -r build/${{ env.THEME_NAME }}.zip . \
+            -x "*.git*" \
+            -x ".github/*" \
+            -x "build/*" \
+            -x "node_modules/*" \
+            -x "vendor/*" \
+            -x ".venv/*" \
+            -x "automation/*" \
+            -x "*.md" \
+            -x ".env*" \
+            -x "__*"
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: otimiza-an-theme
-          path: build/otimiza-an-theme.zip
+          name: ${{ env.THEME_NAME }}
+          path: build/${{ env.THEME_NAME }}.zip
+          retention-days: 7
 
-  deploy-ftp:
-    name: Deploy via SFTP
+  deploy-sftp:
+    name: 🚀 Deploy via SFTP
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: otimiza-an-theme
-          path: build
-      
-      - name: Extract ZIP
-        run: unzip build/otimiza-an-theme.zip -d extracted
       
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
       - name: Deploy via SFTP
         run: |
-          cd extracted
-          lftp -c "set sftp:auto-confirm yes; open -u '${{ secrets.WP_FTP_USERNAME }}','${{ secrets.WP_FTP_PASSWORD }}' sftp://${{ secrets.WP_FTP_SERVER }}:${{ secrets.WP_FTP_PORT }}; mirror -R -v --parallel=2 . ${{ secrets.WP_FTP_REMOTE_DIR }}; bye"
+          lftp -c "
+            set sftp:auto-confirm yes
+            set net:timeout 30
+            set net:max-retries 3
+            open -u '${{ secrets.WP_FTP_USERNAME }}','${{ secrets.WP_FTP_PASSWORD }}' sftp://${{ secrets.WP_FTP_SERVER }}:${{ secrets.WP_FTP_PORT }}
+            mirror -R -v --parallel=4 \
+              --exclude .git/ \
+              --exclude .github/ \
+              --exclude .venv/ \
+              --exclude node_modules/ \
+              --exclude automation/ \
+              --exclude __blobstorage__/ \
+              --exclude __queuestorage__/ \
+              --exclude .env \
+              . ${{ secrets.WP_FTP_REMOTE_DIR }}
+            bye
+          "
+      
+      - name: Verify Deployment
+        run: |
+          echo "🔍 Verificando deploy..."
+          sleep 5
+          response=$(curl -s -o /dev/null -w "%{http_code}" "${{ env.SITE_URL }}")
+          if [ "$response" = "200" ]; then
+            echo "✅ Site respondendo (HTTP $response)"
+          else
+            echo "⚠️ Site retornou HTTP $response"
+          fi
 
-  build-docker:
-    name: Build & Push Docker Image
+  create-wp-pages:
+    name: 📄 Create WordPress Pages
     runs-on: ubuntu-latest
-    needs: validate
-    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: deploy-sftp
+    if: github.event.inputs.deploy_pages == 'true' || github.event_name == 'push'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      
-      - name: Extract metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ secrets.DOCKER_USERNAME }}/otimiza-an-theme
-          tags: |
-            type=ref,event=branch
-            type=sha,prefix={{branch}}-
-            type=raw,value=latest,enable={{is_default_branch}}
-      
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/otimiza-an-theme:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/otimiza-an-theme:buildcache,mode=max
+      - name: Create Pages via REST API
+        run: |
+          AUTH=$(echo -n "${{ secrets.WP_ADMIN_USER }}:${{ secrets.WP_APP_PASSWORD }}" | base64)
+          
+          pages=(
+            "o-livrinho:O Livrinho"
+            "manifesto:Manifesto"
+            "biblia:Bíblia Online"
+            "artigos:Artigos"
+            "o-autor:O Autor"
+            "painel:Painel"
+            "an-agent:AN Agent"
+          )
+          
+          for page in "${pages[@]}"; do
+            slug="${page%%:*}"
+            title="${page#*:}"
+            
+            # Verificar se página existe
+            existing=$(curl -s -H "Authorization: Basic $AUTH" \
+              "${{ env.SITE_URL }}/wp-json/wp/v2/pages?slug=$slug")
+            
+            if [ "$existing" = "[]" ]; then
+              echo "📄 Criando página: $title ($slug)"
+              curl -s -X POST \
+                -H "Authorization: Basic $AUTH" \
+                -H "Content-Type: application/json" \
+                -d "{\"title\":\"$title\",\"slug\":\"$slug\",\"status\":\"publish\",\"content\":\"\"}" \
+                "${{ env.SITE_URL }}/wp-json/wp/v2/pages" > /dev/null
+              echo "✅ Página criada: $title"
+            else
+              echo "ℹ️ Página já existe: $title"
+            fi
+          done
 
-# Instruções de Secrets:
-# WP_FTP_SERVER       -> host FTP/FTPS
-# WP_FTP_USERNAME     -> usuário
-# WP_FTP_PASSWORD     -> senha
-# WP_FTP_REMOTE_DIR   -> diretório remoto onde o WordPress espera a pasta do tema (ex: wp-content/themes/otimiza-an-theme/)
-# WP_FTP_PORT         -> porta (opcional, default 21)
-# WP_SSH_HOST         -> host SSH (para rsync)
-# WP_SSH_USER         -> usuário SSH
-# WP_SSH_KEY          -> chave privada SSH (sem senha)
-# WP_SSH_REMOTE_DIR   -> diretório remoto do tema
+  clear-cache:
+    name: 🧹 Clear WordPress Cache
+    runs-on: ubuntu-latest
+    needs: [deploy-sftp, create-wp-pages]
+    if: always() && (github.event.inputs.clear_cache == 'true' || github.event_name == 'push')
+    steps:
+      - name: Trigger Cache Clear
+        run: |
+          # Tentar limpar cache via endpoint customizado (se existir)
+          curl -s -X POST \
+            -H "Authorization: Basic $(echo -n '${{ secrets.WP_ADMIN_USER }}:${{ secrets.WP_APP_PASSWORD }}' | base64)" \
+            "${{ env.SITE_URL }}/wp-json/wp/v2/settings" > /dev/null 2>&1 || true
+          
+          # Fazer request para forçar atualização
+          curl -s -H "Cache-Control: no-cache" "${{ env.SITE_URL }}/?nocache=$(date +%s)" > /dev/null
+          echo "✅ Cache refresh solicitado"
+
+  validate-deployment:
+    name: ✅ Validate Deployment
+    runs-on: ubuntu-latest
+    needs: [deploy-sftp, create-wp-pages, clear-cache]
+    if: always()
+    steps:
+      - name: Test All Pages
+        run: |
+          echo "🔍 Validando páginas..."
+          
+          pages=("/" "/o-livrinho" "/manifesto" "/artigos" "/biblia")
+          all_passed=true
+          
+          for page in "${pages[@]}"; do
+            response=$(curl -s -o /dev/null -w "%{http_code}" "${{ env.SITE_URL }}$page")
+            if [ "$response" = "200" ]; then
+              echo "✅ $page (HTTP $response)"
+            else
+              echo "❌ $page (HTTP $response)"
+              all_passed=false
+            fi
+          done
+          
+          if [ "$all_passed" = false ]; then
+            echo "⚠️ Algumas páginas não estão acessíveis"
+            exit 1
+          fi
+          
+          echo ""
+          echo "🎉 Deploy concluído com sucesso!"
+          echo "🌐 Site: ${{ env.SITE_URL }}"
+
+  notify:
+    name: 📢 Notify
+    runs-on: ubuntu-latest
+    needs: validate-deployment
+    if: always()
+    steps:
+      - name: Create Summary
+        run: |
+          echo "## 🚀 Deploy Report - A Culpa é das Ovelhas" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔍 Validação | ${{ needs.validate.result == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📦 Build | ${{ needs.build.result == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🚀 SFTP Deploy | ${{ needs.deploy-sftp.result == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📄 WP Pages | ${{ needs.create-wp-pages.result == 'success' && '✅' || '⏭️' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ✅ Validation | ${{ needs.validate-deployment.result == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Site:** ${{ env.SITE_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Trigger:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
