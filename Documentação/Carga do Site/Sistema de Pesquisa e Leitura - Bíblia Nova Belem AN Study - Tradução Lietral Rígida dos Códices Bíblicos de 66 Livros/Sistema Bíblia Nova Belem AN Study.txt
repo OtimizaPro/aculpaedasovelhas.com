@@ -1,0 +1,493 @@
+& "C:/Projetos/AN Agent - site  aculpaedasovelhas.com/.venv/Scripts/Activate.ps1"
+python -m pip install python-docx
+
+
+Segue um **comando para o VS Code** que cria uma **página-base** com a **mesma estrutura funcional** da página do Bible.com (capítulo bíblico), porém **sem copiar conteúdo protegido** e **sem interferir no restante do site**.
+A estrutura é pensada para o sistema de **pesquisa e leitura da Bíblia Nova Belém AN Study**.
+
+```bash
+# Criar arquivo-base da página de capítulo bíblico
+# Estrutura semelhante ao Bible.com → apenas markup funcional
+
+mkdir -p src/bible/pages && \
+cat << 'EOF' > src/bible/pages/capitulo.html
+<div id="bible-reader" class="nb-reader">
+  <header class="nb-header">
+    <div class="nb-nav">
+      <button id="btn-prev" class="nb-btn">Anterior</button>
+      <div class="nb-ref">
+        <span id="livro"></span>
+        <span id="capitulo-atual"></span>
+      </div>
+      <button id="btn-next" class="nb-btn">Próximo</button>
+    </div>
+  </header>
+
+  <section id="texto-biblico" class="nb-texto">
+    <!-- Versículos renderizados dinamicamente -->
+  </section>
+
+  <aside class="nb-side">
+    <div class="nb-tools">
+      <input type="search" id="busca" placeholder="Buscar na Bíblia…" />
+      <button id="btn-toggle-versos">Mostrar/Ocultar Numeração</button>
+    </div>
+  </aside>
+</div>
+
+<script src="/src/bible/js/capitulo.js"></script>
+<link rel="stylesheet" href="/src/bible/css/capitulo.css" />
+EOF
+```
+
+Este comando cria:
+
+* Estrutura de navegador de capítulo (header)
+* Container de texto bíblico para renderização dinâmica
+* Barra lateral com ferramentas (busca, toggle)
+* Arquivo HTML isolado sem impacto no layout do site
+
+**WordPress (PHP template)** 
+
+Segue a **versão para WordPress**, pronta para colar no **VS Code** como um **template PHP**.
+Este arquivo cria uma página independente para leitura/pesquisa da **Bíblia Nova Belém AN Study**, com estrutura semelhante à do Bible.com, porém sem copiar conteúdo protegido.
+
+## **Comando para criar o template no VS Code (Linux/Mac/WSL)**
+
+Cria o arquivo `page-bible-reader.php` no tema ativo:
+
+```bash
+cat << 'EOF' > wp-content/themes/seu-tema/page-bible-reader.php
+<?php
+/* 
+ Template Name: Bíblia Nova Belém AN Reader
+ Description: Página de leitura e navegação bíblica com estrutura inspirada no Bible.com para uso interno do sistema AN Study.
+*/
+get_header();
+?>
+
+<div id="bible-reader" class="nb-reader">
+
+  <header class="nb-header">
+    <div class="nb-nav">
+      <button id="nb-prev" class="nb-btn">Anterior</button>
+
+      <div class="nb-ref">
+        <span id="nb-livro"></span>
+        <span id="nb-capitulo"></span>
+      </div>
+
+      <button id="nb-next" class="nb-btn">Próximo</button>
+    </div>
+  </header>
+
+  <main id="nb-texto" class="nb-texto">
+    <!-- Versículos renderizados dinamicamente via JS -->
+  </main>
+
+  <aside class="nb-side">
+    <div class="nb-tools">
+      <input type="search" id="nb-busca" placeholder="Buscar na Bíblia…" />
+      <button id="nb-toggle-versos" class="nb-btn-alt">Mostrar/Ocultar Numeração</button>
+    </div>
+  </aside>
+
+</div>
+
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/bible/nb.css" />
+<script src="<?php echo get_template_directory_uri(); ?>/bible/nb.js"></script>
+
+<?php get_footer(); ?>
+EOF
+```
+
+---
+
+## **Diretórios recomendados**
+
+Crie a estrutura:
+
+```
+/wp-content/themes/seu-tema/bible/
+    nb.js
+    nb.css
+```
+
+---
+
+## **nb.css (modelo inicial)**
+
+Se quiser, posso gerar estilos completos depois.
+
+```css
+.nb-reader { display:flex; gap:20px; }
+.nb-header { width:100%; padding:10px 0; }
+.nb-nav { display:flex; justify-content:space-between; align-items:center; }
+.nb-texto { flex:1; line-height:1.8; }
+.nb-side { width:260px; }
+.nb-tools { display:flex; flex-direction:column; gap:10px; }
+.nb-btn, .nb-btn-alt { padding:8px 12px; cursor:pointer; }
+```
+
+---
+
+## **nb.js (modelo inicial)**
+
+Sistema dinâmico para carregar capítulos:
+
+```javascript
+document.addEventListener("DOMContentLoaded", () => {
+  const livro = document.getElementById("nb-livro");
+  const cap = document.getElementById("nb-capitulo");
+  const texto = document.getElementById("nb-texto");
+
+  async function carregarCapitulo(ref) {
+    // ref = { livro:"JHN", capitulo:1 }
+    livro.textContent = ref.livro;
+    cap.textContent = ref.capitulo;
+
+    texto.innerHTML = "<div>Carregando…</div>";
+
+    const resp = await fetch(`/api/bible/?l=${ref.livro}&c=${ref.capitulo}`);
+    const data = await resp.json();
+
+    texto.innerHTML = data.versos
+      .map(v => `<p><span class="v">${v.n}</span> ${v.t}</p>`)
+      .join("");
+  }
+
+  carregarCapitulo({ livro: "JHN", capitulo: 1 });
+});
+```
+
+---
+
+cat << 'EOF' > wp-content/themes/seu-tema/page-bible-reader.php
+<?php
+/* 
+ Template Name: Bíblia Nova Belém AN Reader
+ Description: Página de leitura e navegação bíblica com estrutura inspirada no Bible.com para uso interno do sistema AN Study.
+*/
+get_header();
+?>
+
+<div id="bible-reader" class="nb-reader">
+
+  <header class="nb-header">
+    <div class="nb-nav">
+      <button id="nb-prev" class="nb-btn">Anterior</button>
+
+      <div class="nb-ref">
+        <span id="nb-livro"></span>
+        <span id="nb-capitulo"></span>
+      </div>
+
+      <button id="nb-next" class="nb-btn">Próximo</button>
+    </div>
+  </header>
+
+  <main id="nb-texto" class="nb-texto">
+    <!-- Versículos renderizados dinamicamente via JS -->
+  </main>
+
+  <aside class="nb-side">
+    <div class="nb-tools">
+      <input type="search" id="nb-busca" placeholder="Buscar na Bíblia…" />
+      <button id="nb-toggle-versos" class="nb-btn-alt">Mostrar/Ocultar Numeração</button>
+    </div>
+  </aside>
+
+</div>
+
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/bible/nb.css" />
+<script src="<?php echo get_template_directory_uri(); ?>/bible/nb.js"></script>
+
+<?php get_footer(); ?>
+EOF
+
+
+Crie a estrutura:
+
+/wp-content/themes/seu-tema/bible/
+    nb.js
+    nb.css
+
+
+nb.css (modelo inicial)
+
+Se quiser, posso gerar estilos completos depois.
+
+.nb-reader { display:flex; gap:20px; }
+.nb-header { width:100%; padding:10px 0; }
+.nb-nav { display:flex; justify-content:space-between; align-items:center; }
+.nb-texto { flex:1; line-height:1.8; }
+.nb-side { width:260px; }
+.nb-tools { display:flex; flex-direction:column; gap:10px; }
+.nb-btn, .nb-btn-alt { padding:8px 12px; cursor:pointer; }
+
+nb.js (modelo inicial)
+
+Sistema dinâmico para carregar capítulos:
+
+document.addEventListener("DOMContentLoaded", () => {
+  const livro = document.getElementById("nb-livro");
+  const cap = document.getElementById("nb-capitulo");
+  const texto = document.getElementById("nb-texto");
+
+  async function carregarCapitulo(ref) {
+    // ref = { livro:"JHN", capitulo:1 }
+    livro.textContent = ref.livro;
+    cap.textContent = ref.capitulo;
+
+    texto.innerHTML = "<div>Carregando…</div>";
+
+    const resp = await fetch(`/api/bible/?l=${ref.livro}&c=${ref.capitulo}`);
+    const data = await resp.json();
+
+    texto.innerHTML = data.versos
+      .map(v => `<p><span class="v">${v.n}</span> ${v.t}</p>`)
+      .join("");
+  }
+
+  carregarCapitulo({ livro: "JHN", capitulo: 1 });
+});
+
+1) Criar o endpoint REST no tema ou plugin
+
+Crie este arquivo:
+
+wp-content/themes/seu-tema/bible/api.php
+
+Conteúdo do arquivo (colocar no VS Code):
+<?php
+// Registro da API da Bíblia Nova Belém AN
+
+add_action('rest_api_init', function () {
+
+    register_rest_route('anbible/v1', '/capitulo', [
+        'methods'  => 'GET',
+        'callback' => 'anbible_get_capitulo',
+        'permission_callback' => '__return_true'
+    ]);
+
+});
+
+/**
+ * Retorna o capítulo solicitado
+ * Exemplo: /wp-json/anbible/v1/capitulo?livro=JHN&cap=1
+ */
+function anbible_get_capitulo($req) {
+    $livro = sanitize_text_field($req->get_param('livro'));
+    $cap   = intval($req->get_param('cap'));
+
+    if (!$livro || !$cap) {
+        return [
+            'erro' => 'Parâmetros obrigatórios: livro (string), cap (int)'
+        ];
+    }
+
+    // Caminho do arquivo JSON com os versículos
+    $file = get_template_directory() . "/bible/data/{$livro}/{$cap}.json";
+
+    if (!file_exists($file)) {
+        return [
+            'erro' => 'Capítulo não encontrado'
+        ];
+    }
+
+    $json = json_decode(file_get_contents($file), true);
+
+    return [
+        'livro' => $livro,
+        'capitulo' => $cap,
+        'versos' => $json
+    ];
+}
+
+2) Criar estrutura de armazenamento da Bíblia em JSON
+
+Crie a estrutura:
+
+/wp-content/themes/seu-tema/bible/data/JHN/1.json
+/wp-content/themes/seu-tema/bible/data/JHN/2.json
+...
+
+
+Formato sugerido por capítulo:
+
+[
+  { "n": 1, "t": "No princípio era o Verbo..." },
+  { "n": 2, "t": "Ele estava no princípio com Deus..." }
+]
+
+
+Você controla totalmente os textos para Nova Belém AN Study.
+
+3) Atualizar seu nb.js para usar o endpoint REST
+
+Substitua o arquivo:
+
+wp-content/themes/seu-tema/bible/nb.js
+
+
+pelo conteúdo:
+
+document.addEventListener("DOMContentLoaded", () => {
+  const livro = document.getElementById("nb-livro");
+  const cap = document.getElementById("nb-capitulo");
+  const texto = document.getElementById("nb-texto");
+
+  async function carregarCapitulo(ref) {
+    livro.textContent = ref.livro;
+    cap.textContent = ref.capitulo;
+
+    texto.innerHTML = "<div>Carregando…</div>";
+
+    const url = `/wp-json/anbible/v1/capitulo?livro=${ref.livro}&cap=${ref.capitulo}`;
+    const resp = await fetch(url);
+    const data = await resp.json();
+
+    if (data.erro) {
+      texto.innerHTML = `<p>${data.erro}</p>`;
+      return;
+    }
+
+    texto.innerHTML = data.versos
+      .map(v => `<p><span class="v">${v.n}</span> ${v.t}</p>`)
+      .join("");
+  }
+
+  carregarCapitulo({ livro: "JHN", capitulo: 1 });
+});
+
+4) Adicionar o carregamento automático da API no tema
+
+Edite o functions.php do seu tema e adicione:
+
+require_once get_template_directory() . '/bible/api.php';
+
+5) Fluxo final funcionando
+O template WordPress exibe:
+
+page-bible-reader.php
+
+Ele carrega:
+
+nb.css
+
+nb.js
+
+nb.js chama:
+/wp-json/anbible/v1/capitulo?livro=JHN&cap=1
+
+A API responde com:
+
+livro
+
+capítulo
+
+todos os versículos
+
+A página monta o capítulo automaticamente.
+
+
+1) Estrutura final dentro do projeto WordPress
+
+Crie dentro do tema:
+
+wp-content/themes/seu-tema/
+    bible/
+        data/
+            GEN/
+                1.json
+                2.json
+            EXO/
+                1.json
+                2.json
+            ...
+            JHN/
+                1.json
+                2.json
+                3.json
+        api.php
+        nb.js
+        nb.css
+page-bible-reader.php
+
+
+Todos os textos bíblicos ficam dentro de /bible/data/, que vai para o repositório normalmente.
+
+2) Código REST API
+
+(A API já está correta, apenas reforçado que está lendo arquivos locais)
+
+$file = get_template_directory() . "/bible/data/{$livro}/{$cap}.json";
+
+
+Sem banco.
+Sem dependência externa.
+
+3) Comando para criar estrutura + arquivos no VS Code
+
+Execute dentro da raiz do projeto WordPress:
+
+mkdir -p wp-content/themes/seu-tema/bible/data && \
+mkdir -p wp-content/themes/seu-tema/bible/data/JHN && \
+cat << 'EOF' > wp-content/themes/seu-tema/bible/data/JHN/1.json
+[
+  { "n": 1, "t": "Texto de exemplo do versículo 1." },
+  { "n": 2, "t": "Texto de exemplo do versículo 2." }
+]
+EOF
+
+
+Você repetirá isso para cada livro/capítulo.
+
+4) Como copiar automaticamente a pasta para o repositório
+
+Basta adicioná-la no Git como qualquer outra pasta:
+
+git add wp-content/themes/seu-tema/bible/data
+git commit -m "Adiciona textos bíblicos Nova Belém AN Study"
+git push
+
+
+Não há diferença:
+é um diretório comum versionado normalmente pelo Git.
+
+5) Comando para automatizar cópia sempre que atualizar textos (opcional)
+
+Crie um script Bash que você pode rodar no VS Code:
+
+scripts/sync-bible.sh
+
+#!/bin/bash
+rsync -avz ./textos_origem_biblia/ ./wp-content/themes/seu-tema/bible/data/
+git add wp-content/themes/seu-tema/bible/data
+git commit -m "Sync textos bíblicos"
+git push
+
+
+Dê permissão:
+
+chmod +x scripts/sync-bible.sh
+
+
+Agora sempre que você editar os textos na sua pasta local:
+
+./scripts/sync-bible.sh
+
+
+Pronto.
+
+6) O fluxo final fica assim
+
+Você mantém os textos em /bible/data/
+
+O WordPress lê direto desses JSON
+
+O GitHub versiona tudo
+
+O deploy pega automaticamente a pasta inteira
+
+A API serve os versículos sem depender de nada externo

@@ -1,0 +1,36 @@
+.nb-reader {
+  display: flex;
+  gap: 20px;
+}
+
+.nb-header {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nb-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nb-texto {
+  flex: 1;
+  line-height: 1.8;
+}
+
+.nb-side {
+  width: 260px;
+}
+
+.nb-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nb-btn,
+#btn-toggle-versos {
+  padding: 8px 12px;
+  cursor: pointer;
+}

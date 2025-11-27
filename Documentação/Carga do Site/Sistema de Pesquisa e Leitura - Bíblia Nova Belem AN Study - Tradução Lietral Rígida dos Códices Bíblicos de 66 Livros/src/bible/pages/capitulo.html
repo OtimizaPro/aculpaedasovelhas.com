@@ -1,0 +1,26 @@
+<div id="bible-reader" class="nb-reader">
+  <header class="nb-header">
+    <div class="nb-nav">
+      <button id="btn-prev" class="nb-btn">Anterior</button>
+      <div class="nb-ref">
+        <span id="livro"></span>
+        <span id="capitulo-atual"></span>
+      </div>
+      <button id="btn-next" class="nb-btn">Próximo</button>
+    </div>
+  </header>
+
+  <section id="texto-biblico" class="nb-texto">
+    <!-- Versículos renderizados dinamicamente -->
+  </section>
+
+  <aside class="nb-side">
+    <div class="nb-tools">
+      <input type="search" id="busca" placeholder="Buscar na Bíblia…" />
+      <button id="btn-toggle-versos">Mostrar/Ocultar Numeração</button>
+    </div>
+  </aside>
+</div>
+
+<script src="/src/bible/js/capitulo.js"></script>
+<link rel="stylesheet" href="/src/bible/css/capitulo.css" />
