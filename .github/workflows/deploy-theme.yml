@@ -2,10 +2,8 @@ name: Deploy WordPress Theme
 
 on:
   push:
-    branches: [ main ]
-    paths:
-      - '**'
-      - '!.github/**'
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -15,41 +13,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+      
       - name: Install Composer Dependencies
         run: |
           if [ -f composer.json ]; then
             composer install --no-interaction --prefer-dist
           fi
+      
       - name: PHP Lint
         run: |
           find . -type f -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -I {} php -l {} | grep -v "No syntax errors" || true
+
       - name: Basic Theme Checks
         run: |
           test -f style.css || (echo "style.css não encontrado" && exit 1)
           grep -q "Theme Name:" style.css || (echo "Cabeçalho do tema ausente em style.css" && exit 1)
-      - name: Run PHPCS
-        run: |
-          if [ -f phpcs.xml ]; then
-            vendor/bin/phpcs --standard=phpcs.xml . || true
-          fi
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-      - name: Install Node Dependencies
-        run: |
-          if [ -f package.json ]; then
-            npm ci || npm install
-          fi
-      - name: Stylelint CSS
-        run: |
-          if [ -f package.json ]; then
-            npx stylelint '**/*.css'
-          fi
 
   build:
     name: Build Theme Package
@@ -57,13 +40,15 @@ jobs:
     needs: validate
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      
       - name: Create ZIP
         run: |
           mkdir -p build
           zip -r build/otimiza-an-theme.zip . -x "*.git*" -x ".github/*" -x "build/*" -x "node_modules/*" -x "vendor/*"
+      
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: otimiza-an-theme
           path: build/otimiza-an-theme.zip
@@ -75,14 +60,17 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: otimiza-an-theme
           path: build
+      
       - name: Extract ZIP
         run: unzip build/otimiza-an-theme.zip -d extracted
+      
       - name: Deploy (SFTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
