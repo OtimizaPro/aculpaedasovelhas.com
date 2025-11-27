@@ -6,7 +6,7 @@
             <!-- Brand Column -->
             <div class="footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-                    A Culpa e das Ovelhas
+                    A Culpa é das Ovelhas
                 </a>
                 <p>"Revelando verdades que transformam - para os que tem ouvidos para ouvir."</p>
                 
@@ -63,7 +63,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> A Culpa e das Ovelhas. Todos os direitos reservados.</p>
+            <p>&copy; <?php echo date('Y'); ?> A Culpa é das Ovelhas. Todos os direitos reservados.</p>
             <div>
                 <a href="<?php echo esc_url(home_url('/privacidade')); ?>">Politica de Privacidade</a>
             </div>

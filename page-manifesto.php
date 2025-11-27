@@ -20,7 +20,7 @@ get_header();
     <div class="container container--narrow">
         <article style="font-size: 1.125rem; line-height: 2; color: var(--text-secondary);">
             
-            <h2 style="color: var(--text-primary); margin: 3rem 0 1.5rem; font-size: 1.75rem;">A Culpa e das Ovelhas</h2>
+            <h2 style="color: var(--text-primary); margin: 3rem 0 1.5rem; font-size: 1.75rem;">A Culpa é das Ovelhas</h2>
             
             <p style="margin-bottom: 1.5rem;">
                 Durante muito tempo, acreditamos que a responsabilidade estava apenas nas maos daqueles que lideram. 

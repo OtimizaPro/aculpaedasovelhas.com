@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Script de Deploy Completo - A Culpa e das Ovelhas
+    Script de Deploy Completo - A Culpa é das Ovelhas
 .DESCRIPTION
     Automatiza todo o fluxo de deploy: git, SFTP, WP-CLI, cache clear
 .PARAMETER Action
@@ -213,7 +213,7 @@ function Test-Site {
 function Show-Status {
     Write-Host ""
     Write-Host "=======================================================" -ForegroundColor Yellow
-    Write-Host "  STATUS DO PROJETO: A Culpa e das Ovelhas" -ForegroundColor Yellow
+    Write-Host "  STATUS DO PROJETO: A Culpa é das Ovelhas" -ForegroundColor Yellow
     Write-Host "=======================================================" -ForegroundColor Yellow
     Write-Host ""
     
@@ -253,7 +253,7 @@ function Show-Status {
 
 Write-Host ""
 Write-Host "=======================================================" -ForegroundColor Yellow
-Write-Host "  DEPLOY AUTOMATICO - A Culpa e das Ovelhas" -ForegroundColor Yellow
+Write-Host "  DEPLOY AUTOMATICO - A Culpa é das Ovelhas" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
 Write-Host ""
 

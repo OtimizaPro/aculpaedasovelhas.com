@@ -21,7 +21,7 @@
         <div class="header-inner">
             <!-- Logo -->
             <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-                A Culpa e das Ovelhas
+                A Culpa é das Ovelhas
             </a>
             
             <!-- Navigation -->

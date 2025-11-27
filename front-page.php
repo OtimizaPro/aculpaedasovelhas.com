@@ -33,6 +33,55 @@ get_header();
     </div>
 </section>
 
+<!-- REVELATIONS SECTION -->
+<section class="section section--auto revelations-section" id="revelacoes">
+    <div class="container container--narrow">
+        <p class="text-sm text-muted">Revelacoes ineditas</p>
+        <h2 class="display-md">Revelacoes Ineditas!</h2>
+        <p>
+            O autor de <strong>"O Livrinho - A Culpa é das Ovelhas"</strong> apresenta a <strong>Nova Belem AN Study</strong>,
+            traducao biblica literal rigida dos codices originais em Grego Koine, Hebraico e Aramaico direto para o PT-BR e Ingles EUA,
+            acompanhada do sistema de estudos online <strong>Otimiza AN Agent Bible Study</strong>, criado para conduzir pesquisas e apoiar a
+            desvelacao do Enigma 666.
+        </p>
+        <p>
+            Anderson Belem Costa é carioca, neurodivergente duplamente excepcional, autodidata, policial do RJ há 15 anos e fundador de uma empresa de
+            tecnologia e IA com operacao nacional apoiada por Google e Microsoft (mais de 1,5 milhao em investimentos). No ambito estrategico conta com
+            o suporte do Pinheiro Neto Advogados, é membro da Entrepreneurs Organization e do Cubo Itau.
+        </p>
+        <p>
+            Pela primeira vez Belem publica artigos e estudos apoiados pelas IAs que desenvolveu para registrar a revelacao recebida pelo Espirito Santo de Deus
+            e desvelar definitivamente o numero 666 e outros enigmas do texto sagrado.
+        </p>
+
+        <div class="revelations-grid">
+            <div>
+                <h3>Desvela com provas filologicas</h3>
+                <ul>
+                    <li>Nome da besta do mar, da terra, do falso profeta e da profanacao.</li>
+                    <li>Identidade do principal anticristo e do grande dragao vermelho.</li>
+                    <li>A disputa entre cabrito e bode, pessoas e anjos caidos.</li>
+                    <li>Bestas de Daniel, as 70 semanas e o ano indicado pelo anjo.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Opinioes do autor</h3>
+                <ul>
+                    <li>Sugestoes sobre Babilonia, a prostituta e o cavaleiro branco.</li>
+                    <li>Por que a Revelacao de Jesus Cristo é alegorizada.</li>
+                    <li>Os sete degraus do ceu ao inferno em base biblica.</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>
+            O conjunto reúne livro, artigos, revisao da traducao biblica, plataforma gratuita de estudos, comunidade e um sistema de IA filologica
+            avançada para quem busca precisao textual, clareza profetica e a verdade literal das escrituras. Revelacoes recebidas por Anderson Belem Costa,
+            o Autor.
+        </p>
+    </div>
+</section>
+
 <!-- INTRO SECTION [02/05] -->
 <section class="section section--auto intro-section" id="intro">
     <div class="container">
