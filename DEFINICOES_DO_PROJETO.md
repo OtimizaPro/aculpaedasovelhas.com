@@ -1,13 +1,13 @@
 INSTRUCTION's CODE CORE
    VSCODE PROJECT 
-      SITE-OTIMIZA-PRO
+      SITE-ACULPAEDASOVELHAS
 
 ###Definições do Projeto
-#Site em Produção= otimiza.pro
+#Site em Produção= aculpaedasovelhas.com
 #Abrir o site em produção= Agent Usa recursos como extensões como do tipo VISION/ESCUTA/LEITURA DE CÓDIGO HTML/CRAWLER/SCRAPING/OUTROS, APIs, SSHs, Conectores e outros para ler/entender/comparar um Website/Site 
 #User Name=Anderson Belem Costa
-#User login= anderson@otimiza.pro
-#User e-mail=anderson@otimiza.pro
+#User login= anderson@aculpaedasovelhas.com
+#User e-mail=anderson@aculpaedasovelhas.com
 #Fala= Interação entre User e Agents e vice-versa
 #Relatório Diário_de_Bordo.MD=
 #Auto Atualização Na Agent= Agent deve, mediante ordem ou aprovação do User, atualizar este documento sem nunca alterar a estrutura V.1 e sim apenas ampliá-la para conter mais informações, nunca conflitantes com estas ordens
@@ -28,7 +28,7 @@ INSTRUCTION's CODE CORE
 #Consulta, sempre antes de quaisquer operação este=
  INSTRUCTION's CODE CORE
    VSCODE PROJECT 
-      SITE-OTIMIZA-PRO
+      SITE-ACULPAEDASOVELHAS
 
 ---
 ###Fluxo de Trabalho

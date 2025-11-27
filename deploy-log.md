@@ -1,11 +1,11 @@
-# Histórico de Deploys – otimiza.pro
+# Histórico de Deploys – aculpaedasovelhas.com
 
 ## Deploy 2025-11-26 – Criação página Artigos e ajustes de fluxo
 
 **Data/Hora:** 2025-11-26
 **Responsável:** (preencher)
 **Ambiente:** Produção
-**Site:** <https://otimiza.pro>
+**Site:** <https://aculpaedasovelhas.com>
 
 **Branch:** main
 **Commit(s):** (preencher com hash ou link do commit)
@@ -19,15 +19,15 @@
 
 **Passos executados:**
 
-- Edição de arquivos na pasta local `C:\Projetos\AN Agent - otimiza.pro`
+- Edição de arquivos na pasta local `C:\Projetos\AN Agent - site  aculpaedasovelhas.com`
 - `git checkout main`
 - `git add .`
 - `git commit -m "Cria página Artigos e documenta fluxo de deploy"`
 - `git push origin main`
 - Atualização do código no servidor (git pull ou sincronização SFTP)
 - Validação manual no navegador em:
-  - `https://otimiza.pro`
-  - `https://otimiza.pro/artigos`
+  - `https://aculpaedasovelhas.com`
+  - `https://aculpaedasovelhas.com/artigos`
 
 **Resultado:**
 
@@ -43,7 +43,7 @@
 **Data/Hora:** 2025-02-20
 **Responsável:** GitHub Copilot
 **Ambiente:** Produção
-**Site:** <https://otimiza.pro>
+**Site:** <https://aculpaedasovelhas.com>
 
 **Branch:** main
 **Commit(s):** c9d69f9 (Bump version), 09e8c18 (Force front-page.php)

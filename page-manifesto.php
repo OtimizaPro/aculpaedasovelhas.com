@@ -33,7 +33,7 @@
         <div class="content-wrapper" style="max-width: 800px;">
             <header class="ms-page-header" style="text-align: center; margin-bottom: 4rem;">
                 <span class="hero-pill" style="margin-bottom: 1rem;">Documento Oficial</span>
-                <h1>Manifesto: Otimiza Pro</h1>
+                <h1>Manifesto: A Culpa é das Ovelhas</h1>
                 <p class="ms-subtitle" style="margin: 0 auto;">A responsabilidade civil do Reino e a desconstrução de sistemas injustos.</p>
             </header>
             
@@ -106,7 +106,7 @@
                 </blockquote>
 
                 <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 4px; font-size: 0.9rem; margin-bottom: 2rem;">
-                    <strong>📌 Nota Técnica:</strong> Tradução e coleta técnica: “AN Agent — Supported Bible Study”, uma Otimiza Semi-DAO Synthetic Worker (AI) desenvolvido por Otimiza.pro
+                    <strong>📌 Nota Técnica:</strong> Tradução e coleta técnica: "AN Agent — Supported Bible Study", uma aculpaedasovelhas.com Semi-DAO Synthetic Worker (AI)
                 </div>
 
                 <h3 style="color: var(--text-primary); margin-top: 3rem;">O Centro: O Cristo</h3>
@@ -126,8 +126,8 @@
                 </blockquote>
 
                 <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 4px; font-size: 0.9rem; margin-bottom: 2rem;">
-                    <p style="margin-bottom: 0.5rem;"><strong>📌 Nota Técnica:</strong> Tradução e coleta técnica: “AN Agent — Supported Bible Study”, uma Otimiza Semi-DAO Synthetic Worker (AI) desenvolvido por Otimiza.pro</p>
-                    <p style="margin-bottom: 0;"><strong>📌 Nota Técnica:</strong> Origem da letra א: fenício (𐤀, ʾālep), hebraico (א, ʾālef), aramaico (𐡀, ʾālap), siríaco (ܐ, ʾālap̄), árabe (ا, alif), árabe antigo (𐩱, alef), amárico (አ, ʾälef).</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>📌 Nota Técnica:</strong> Tradução e coleta técnica: "AN Agent — Supported Bible Study", uma aculpaedasovelhas.com Semi-DAO Synthetic Worker (AI)</p>
+                    <p style="margin-bottom: 0;"><strong>📌 Nota Técnica:</strong> Origem da letra א: fenício (𐤀, ʾAlep), hebraico (א, ʾālef), aramaico (𐡀, ʾālap), siríaco (ܐ, ʾālap̄), árabe (ا, alif), árabe antigo (𐩱, alef), amárico (አ, ʾälef).</p>
                 </div>
 
                 <h3 style="color: var(--text-primary); margin-top: 4rem; text-align: center;">Confissão</h3>
@@ -163,7 +163,7 @@
                     </blockquote>
                     
                     <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-                        <strong>📌 Nota Técnica:</strong> Coleta de Códices, Transliteração e Tradução técnica realizadas por: “AN Agent — Bible Study supported by AI technology”, um Projeto Otimiza Semi-DAO Synthetic Worker (AI) desenvolvido por Otimiza.pro
+                        <strong>📌 Nota Técnica:</strong> Coleta de Códices, Transliteração e Tradução técnica realizadas por: "AN Agent — Bible Study supported by AI technology", um Projeto aculpaedasovelhas.com Semi-DAO Synthetic Worker (AI)
                     </div>
                 </div>
 

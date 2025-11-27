@@ -1,4 +1,4 @@
-# 🐳 Docker Setup - Otimiza AN Theme
+# 🐳 Docker Setup - A Culpa é das Ovelhas Theme
 
 Este diretório contém a configuração completa de Docker para desenvolvimento e deploy do tema WordPress.
 
@@ -62,16 +62,16 @@ O workflow `.github/workflows/deploy-theme.yml` faz automaticamente:
 
 ### Configurar Secrets no GitHub
 
-Adicione em: <https://github.com/OtimizaPro/otimiza.pro/settings/secrets/actions>
+Adicione em: <https://github.com/OtimizaPro/aculpaedasovelhas.com/settings/secrets/actions>
 
 ```
 DOCKER_USERNAME = andersonotimiza
 DOCKER_PASSWORD = (seu Docker Hub password/token)
 WP_FTP_SERVER = sftp.wp.com
-WP_FTP_USERNAME = andersonotimiza-hyipz.wordpress.com
-WP_FTP_PASSWORD = z9wYkSES61nLLaGp3G6f
+WP_FTP_USERNAME = (seu usuário SFTP)
+WP_FTP_PASSWORD = (sua senha SFTP)
 WP_FTP_PORT = 22
-WP_FTP_REMOTE_DIR = /htdocs/wp-content/themes/otimiza-an-theme/
+WP_FTP_REMOTE_DIR = /htdocs/wp-content/themes/aculpa-theme/
 ```
 
 ## 📦 Estrutura de Imagens
@@ -79,15 +79,15 @@ WP_FTP_REMOTE_DIR = /htdocs/wp-content/themes/otimiza-an-theme/
 ### Repositório Docker Hub
 
 ```
-andersonotimiza/otimiza-an-theme:latest
-andersonotimiza/otimiza-an-theme:main-<sha>
+andersonotimiza/aculpa-theme:latest
+andersonotimiza/aculpa-theme:main-<sha>
 ```
 
 ### Usar imagem em produção
 
 ```bash
-docker pull andersonotimiza/otimiza-an-theme:latest
-docker run -p 80:80 andersonotimiza/otimiza-an-theme:latest
+docker pull andersonotimiza/aculpa-theme:latest
+docker run -p 80:80 andersonotimiza/aculpa-theme:latest
 ```
 
 ## 🔍 Comandos Úteis
@@ -101,7 +101,7 @@ docker ps
 ### Ver imagens locais
 
 ```powershell
-docker images | grep otimiza
+docker images | grep aculpa
 ```
 
 ### Limpar cache de build
@@ -119,15 +119,15 @@ docker-compose build --no-cache
 ### Acessar container WordPress
 
 ```powershell
-docker exec -it otimiza-wordpress bash
+docker exec -it aculpa-wordpress bash
 ```
 
 ### Executar WP-CLI dentro do container
 
 ```powershell
-docker exec -it otimiza-wordpress wp --info
-docker exec -it otimiza-wordpress wp theme list
-docker exec -it otimiza-wordpress wp plugin list
+docker exec -it aculpa-wordpress wp --info
+docker exec -it aculpa-wordpress wp theme list
+docker exec -it aculpa-wordpress wp plugin list
 ```
 
 ## 🔐 Segurança
@@ -142,13 +142,13 @@ docker exec -it otimiza-wordpress wp plugin list
 ### Healthcheck do container
 
 ```powershell
-docker inspect --format='{{.State.Health.Status}}' otimiza-wordpress
+docker inspect --format='{{.State.Health.Status}}' aculpa-wordpress
 ```
 
 ### Logs de erro do WordPress
 
 ```powershell
-docker exec otimiza-wordpress tail -f /var/www/html/wp-content/debug.log
+docker exec aculpa-wordpress tail -f /var/www/html/wp-content/debug.log
 ```
 
 ## 🆘 Troubleshooting
@@ -169,5 +169,5 @@ docker-compose up -d --build
 ### Permissões de arquivo
 
 ```powershell
-docker exec otimiza-wordpress chown -R www-data:www-data /var/www/html/wp-content/themes/otimiza-an-theme
+docker exec aculpa-wordpress chown -R www-data:www-data /var/www/html/wp-content/themes/aculpa-theme
 ```

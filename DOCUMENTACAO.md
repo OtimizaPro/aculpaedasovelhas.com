@@ -1,9 +1,9 @@
-# Projeto SITE-OTIMIZA-PRO
+# Projeto SITE-ACULPAEDASOVELHAS
 
 ## Definições do Projeto
 
 **Site em Produção:**
-`otimiza.pro`
+`aculpaedasovelhas.com`
 
 **Abre o site em produção:**
 Agent Usa recursos como extensões como do tipo VISION/ESCUTA/LEITURA DE CÓDIGO HTML/CRAWLER/SCRAPING/OUTROS, APIs, SSHs, Conectores e outros para ler/entender/comparar um Website/Site
@@ -18,10 +18,10 @@ Agent Usa recursos como extensões como do tipo VISION/ESCUTA/LEITURA DE CÓDIGO
 Anderson Belem Costa
 
 **User login:**
-<anderson@otimiza.pro>
+<anderson@aculpaedasovelhas.com>
 
 **User e-mail:**
-<anderson@otimiza.pro>
+<anderson@aculpaedasovelhas.com>
 
 **Fala:**
 Interação entre User e Agents e vice-versa

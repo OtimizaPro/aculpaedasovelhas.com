@@ -56,4 +56,8 @@ Este arquivo registra o histórico de aprovações e feedbacks do projeto.
 
 - **Data:** 2025-11-26
 - **Ação:** Rebranding completo para "Otimiza Pro" e refatoração de código (prefixos PHP).
-- **Status:** Em andamento.
+- **Status:** REVERTIDO - Separação de projetos realizada.
+
+- **Data:** 2025-11-26
+- **Ação:** Separação de projetos: Revertido branding para "A Culpa é das Ovelhas". Corrigidos todos os arquivos de documentação, templates PHP, CSS e configurações que estavam misturados com o projeto otimiza.pro.
+- **Status:** Concluído.

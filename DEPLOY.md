@@ -1,11 +1,11 @@
-# Fluxo de Deploy – otimiza.pro
+# Fluxo de Deploy – aculpaedasovelhas.com
 
-Este documento descreve o fluxo de deploy padrão para o site **otimiza.pro**.
+Este documento descreve o fluxo de deploy padrão para o site **aculpaedasovelhas.com**.
 
 ## 1. Atualizar arquivos na pasta local (VS Code)
 
 1. Abra o projeto no VS Code na pasta:
-   - `C:\Projetos\AN Agent - otimiza.pro`
+   - `C:\Projetos\AN Agent - site  aculpaedasovelhas.com`
 2. Faça as alterações necessárias nos arquivos do tema / scripts, por exemplo:
    - `front-page.php`, `index.php`, `page-*.php`
    - `functions.php`, `style.css`, `assets/js/*.js`
@@ -19,7 +19,7 @@ Você pode usar Git pelo terminal, GitHub Desktop, GitHub CLI ou integração do
 ### 2.1. Via Git (terminal / VS Code)
 
 ```powershell
-cd "C:\Projetos\AN Agent - otimiza.pro"
+cd "C:\Projetos\AN Agent - site  aculpaedasovelhas.com"
 
 # Garantir que está no branch de produção
 git checkout main
@@ -51,16 +51,16 @@ git push origin main
 2. Use GitHub CLI (`gh`) se preferir linha de comando, ou
 3. Configure GitHub Actions para automatizar passos adicionais (como testes ou build), se necessário.
 
-## 3. Atualizar e validar o site remoto (otimiza.pro)
+## 3. Atualizar e validar o site remoto (aculpaedasovelhas.com)
 
-O site de produção está em **<https://otimiza.pro>**.
+O site de produção está em **<https://aculpaedasovelhas.com>**.
 
 ### 3.1. Atualizar código no servidor
 
 A sincronização entre o repositório GitHub e o servidor pode ser feita de várias formas, conforme a infraestrutura atual:
 
 - **Se o repositório está clonado no servidor** (recomendado):
-  - Acesse a pasta do tema no servidor (por exemplo, `wp-content/themes/otimiza-an-theme`).
+  - Acesse a pasta do tema no servidor (por exemplo, `wp-content/themes/aculpa-theme`).
   - Execute:
 
     ```bash
@@ -71,7 +71,7 @@ A sincronização entre o repositório GitHub e o servidor pode ser feita de vá
   - Isso traz para o servidor o mesmo código que está no GitHub.
 
 - **Se usa SFTP / WinSCP**:
-  - Sincronize manualmente os arquivos da pasta local `C:\Projetos\AN Agent - otimiza.pro` com a pasta do tema no servidor.
+  - Sincronize manualmente os arquivos da pasta local `C:\Projetos\AN Agent - site  aculpaedasovelhas.com` com a pasta do tema no servidor.
   - Garanta que os arquivos principais (PHP, CSS, JS, etc.) foram atualizados.
 
 ### 3.2. Abrir e ler o site de destino
@@ -79,9 +79,9 @@ A sincronização entre o repositório GitHub e o servidor pode ser feita de vá
 Após o deploy, é necessário validar o resultado diretamente no site remoto:
 
 1. Abra no navegador:
-   - Página inicial: `https://otimiza.pro`
+   - Página inicial: `https://aculpaedasovelhas.com`
    - Páginas específicas alteradas (por exemplo, página **Artigos**):
-     - `https://otimiza.pro/artigos` (ou a URL configurada pelo WordPress).
+     - `https://aculpaedasovelhas.com/artigos` (ou a URL configurada pelo WordPress).
 2. No VS Code, o GitHub Copilot pode auxiliar na leitura e revisão dos arquivos **locais** que correspondem a esse site.
 3. Se você usa extensões de acesso remoto (SSH/SFTP/Remote), pode abrir também a pasta do site no servidor dentro do VS Code; o Copilot consegue então ler esses arquivos abertos e ajudar na comparação/validação do deploy.
 
@@ -95,7 +95,7 @@ Após cada deploy, recomenda-se registrar um pequeno relatório. Sugestão de mo
 Data/Hora: AAAA-MM-DD HH:MM
 Responsável: Seu Nome
 Ambiente: Produção
-Site: https://otimiza.pro
+Site: https://aculpaedasovelhas.com
 
 Branch: main
 Commit(s): <hash ou link do commit/PR>
