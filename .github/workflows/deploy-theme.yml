@@ -71,20 +71,13 @@ jobs:
       - name: Extract ZIP
         run: unzip build/otimiza-an-theme.zip -d extracted
       
-      - name: Deploy (SFTP)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.WP_FTP_SERVER }}
-          username: ${{ secrets.WP_FTP_USERNAME }}
-          password: ${{ secrets.WP_FTP_PASSWORD }}
-          protocol: sftp
-          port: ${{ secrets.WP_FTP_PORT }}
-          server-dir: ${{ secrets.WP_FTP_REMOTE_DIR }}
-          local-dir: extracted/
-          exclude: |
-            **/.git*
-            **/.github/**
-            **/node_modules/**
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via SFTP
+        run: |
+          cd extracted
+          lftp -c "set sftp:auto-confirm yes; open -u '${{ secrets.WP_FTP_USERNAME }}','${{ secrets.WP_FTP_PASSWORD }}' sftp://${{ secrets.WP_FTP_SERVER }}:${{ secrets.WP_FTP_PORT }}; mirror -R -v --parallel=2 . ${{ secrets.WP_FTP_REMOTE_DIR }}; bye"
 
   build-docker:
     name: Build & Push Docker Image
