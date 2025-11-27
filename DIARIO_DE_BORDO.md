@@ -37,3 +37,7 @@ Este arquivo registra o histórico de aprovações e feedbacks do projeto.
 - **Data:** 2025-11-26
 - **Ação:** Inserção do conteúdo profundo "O Livrinho" (Interpretação Bíblica e Notas) em `page-o-livrinho.php`.
 - **Status:** Aprovado e Implantado.
+
+- **Data:** 2025-11-26
+- **Ação:** Criação da subpágina "O Autor" (`page-o-autor.php`) com biografia e testemunho.
+- **Status:** Aprovado e Implantado.
