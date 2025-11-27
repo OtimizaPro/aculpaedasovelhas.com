@@ -69,35 +69,34 @@
 
 - O site pode apresentar cache agressivo. Se o layout não mudar, verificar configurações de cache no servidor ou plugin.
 
-## Deploy 2025-11-26 – Rebranding Completo para Otimiza Pro
+## Deploy 2025-11-26 – Conteúdo "O Livrinho", "Manifesto" e "O Autor"
 
-**Data/Hora:** 2025-11-26
+**Data/Hora:** 2025-11-26 23:15
 **Responsável:** GitHub Copilot
 **Ambiente:** Produção
-**Site:** <https://otimiza.pro>
+**Site:** <https://aculpaedasovelhas.com>
 
 **Branch:** main
-**Commit(s):** (será gerado)
+**Commit(s):** 3ceadf5 (Manifesto), 289ed5a (O Autor), e015c1a (O Livrinho)
 
 **Escopo do deploy:**
 
-- Rebranding total de "A Culpa é das Ovelhas" para "Otimiza Pro".
-- Refatoração de prefixos de funções PHP (`acu_` -> `otimiza_`).
-- Criação de arquivos de tema faltantes (`header.php`, `footer.php`, `single.php`).
-- Atualização de URLs e textos em toda a documentação e templates.
-- Ajustes no Dockerfile e configurações de ambiente.
+- **O Livrinho (`page-o-livrinho.php`):** Inserção do conteúdo "Verdades Ocultas", interpretação bíblica e notas técnicas.
+- **Manifesto (`page-manifesto.php`):** Atualização para o texto integral da "Edição 666".
+- **O Autor (`page-o-autor.php`):** Criação da página de biografia e testemunho.
+- **Funcionalidades:** Implementação de alternância de tema Light/Dark (JS + CSS).
+- **Correções:** Ajuste no layout de Artigos e redirecionamento do Index.
 
 **Passos executados:**
 
-- `git add .`
-- `git commit -m "Rebranding completo para Otimiza Pro e correções estruturais"`
-- `git push origin main`
+- `git push origin main` (acionando GitHub Actions para deploy SFTP).
+- Validação de código local.
 
 **Resultado:**
 
-- [ ] Código enviado para repositório.
-- [ ] Validação em produção pendente.
+- [x] Código enviado e implantado com sucesso.
+- [ ] **Pendente:** Configuração manual no WP-Admin (Atribuir templates às páginas "Manifesto", "O Autor" e "O Livrinho").
 
 **Observações:**
 
-- Verificar se o servidor de produção atualizou corretamente os arquivos PHP refatorados para evitar erros fatais.
+- As páginas foram implantadas, mas requerem associação manual de Template no painel do WordPress para serem visualizadas corretamente nas URLs `/manifesto`, `/o-autor` e `/o-livrinho`.
