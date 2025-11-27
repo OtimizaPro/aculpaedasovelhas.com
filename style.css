@@ -82,6 +82,16 @@ body {
     overflow-x: hidden;
 }
 
+/* Remove WordPress.com gifting banner that appears on business plans */
+#wpcom-gifting-banner,
+.has-wpcom-gifting-banner #wpcom-gifting-banner {
+    display: none !important;
+}
+
+.has-wpcom-gifting-banner body {
+    margin-top: 0 !important;
+}
+
 a {
     color: inherit;
     text-decoration: none;
