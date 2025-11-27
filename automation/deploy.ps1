@@ -1,25 +1,25 @@
 <#
 .SYNOPSIS
-    Script de Deploy Completo - A Culpa é das Ovelhas
+    Script de Deploy Completo - A Culpa e das Ovelhas
 .DESCRIPTION
     Automatiza todo o fluxo de deploy: git, SFTP, WP-CLI, cache clear
 .PARAMETER Action
-    Ação a executar: full, git, sftp, wp-pages, wp-cache, validate
+    Acao a executar: full, git, sftp, create-pages, cache, validate, status
 .EXAMPLE
     .\deploy.ps1 -Action full
-    .\deploy.ps1 -Action wp-pages
+    .\deploy.ps1 -Action create-pages
 #>
 
 param(
     [Parameter(Mandatory=$false)]
-    [ValidateSet('full', 'git', 'sftp', 'wp-pages', 'wp-cache', 'validate', 'status')]
+    [ValidateSet('full', 'git', 'sftp', 'create-pages', 'cache', 'validate', 'status')]
     [string]$Action = 'full',
     
     [Parameter(Mandatory=$false)]
     [string]$CommitMessage = "Auto-deploy: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 )
 
-# Carregar variáveis de ambiente
+# Carregar variaveis de ambiente
 $envFile = Join-Path $PSScriptRoot "../.env"
 if (Test-Path $envFile) {
     Get-Content $envFile | ForEach-Object {
@@ -29,33 +29,33 @@ if (Test-Path $envFile) {
     }
 }
 
-# Configurações
+# Configuracoes
 $ProjectRoot = Split-Path $PSScriptRoot -Parent
-$SiteUrl = $env:WP_SITE_URL ?? "https://aculpaedasovelhas.com"
+$SiteUrl = if ($env:WP_SITE_URL) { $env:WP_SITE_URL } else { "https://aculpaedasovelhas.com" }
 $SshHost = $env:WP_SSH_HOST
 $SshUser = $env:WP_SSH_USER
 $SshKeyPath = $env:WP_SSH_KEY_PATH
-$RemoteThemeDir = $env:WP_REMOTE_THEME_DIR ?? "/htdocs/wp-content/themes/aculpa-theme"
+$RemoteThemeDir = if ($env:WP_REMOTE_THEME_DIR) { $env:WP_REMOTE_THEME_DIR } else { "/htdocs/wp-content/themes/aculpa-theme" }
 
 # Cores para output
-function Write-Step { param($msg) Write-Host "▶ $msg" -ForegroundColor Cyan }
-function Write-Success { param($msg) Write-Host "✓ $msg" -ForegroundColor Green }
-function Write-Error { param($msg) Write-Host "✗ $msg" -ForegroundColor Red }
-function Write-Info { param($msg) Write-Host "  $msg" -ForegroundColor Gray }
+function Write-Step { param($msg) Write-Host "[>] $msg" -ForegroundColor Cyan }
+function Write-OK { param($msg) Write-Host "[OK] $msg" -ForegroundColor Green }
+function Write-Err { param($msg) Write-Host "[X] $msg" -ForegroundColor Red }
+function Write-Msg { param($msg) Write-Host "    $msg" -ForegroundColor Gray }
 
 # =============================================================================
-# FUNÇÕES DE DEPLOY
+# FUNCOES DE DEPLOY
 # =============================================================================
 
 function Deploy-Git {
-    Write-Step "Enviando alterações para GitHub..."
+    Write-Step "Enviando alteracoes para GitHub..."
     
     Set-Location $ProjectRoot
     
-    # Verificar se há alterações
+    # Verificar se ha alteracoes
     $status = git status --porcelain
     if (-not $status) {
-        Write-Info "Nenhuma alteração para commitar"
+        Write-Msg "Nenhuma alteracao para commitar"
         return $true
     }
     
@@ -64,10 +64,10 @@ function Deploy-Git {
     git push origin main
     
     if ($LASTEXITCODE -eq 0) {
-        Write-Success "Push realizado com sucesso"
+        Write-OK "Push realizado com sucesso"
         return $true
     } else {
-        Write-Error "Falha no push"
+        Write-Err "Falha no push"
         return $false
     }
 }
@@ -78,89 +78,44 @@ function Deploy-SFTP {
     $ftpServer = $env:WP_FTP_SERVER
     $ftpUser = $env:WP_FTP_USERNAME
     $ftpPass = $env:WP_FTP_PASSWORD
-    $ftpPort = $env:WP_FTP_PORT ?? "22"
+    $ftpPort = if ($env:WP_FTP_PORT) { $env:WP_FTP_PORT } else { "22" }
     $remoteDir = $env:WP_FTP_REMOTE_DIR
     
     if (-not $ftpServer -or -not $ftpUser) {
-        Write-Error "Credenciais SFTP não configuradas no .env"
+        Write-Err "Credenciais SFTP nao configuradas no .env"
         return $false
     }
     
-    # Usando WinSCP CLI se disponível
+    # Usando WinSCP CLI se disponivel
     $winscpPath = "C:\Program Files (x86)\WinSCP\WinSCP.com"
     if (Test-Path $winscpPath) {
-        $script = @"
+        $scriptContent = @"
 open sftp://${ftpUser}:${ftpPass}@${ftpServer}:${ftpPort}/ -hostkey=*
 synchronize remote "$ProjectRoot" "$remoteDir" -filemask="|.git/;.github/;.venv/;node_modules/;*.md;.env"
 exit
 "@
-        $script | & $winscpPath /script=/dev/stdin
+        $tempScript = New-TemporaryFile
+        $scriptContent | Out-File -FilePath $tempScript.FullName -Encoding ASCII
+        & $winscpPath /script=$($tempScript.FullName)
+        Remove-Item $tempScript.FullName
     } else {
-        Write-Info "WinSCP não encontrado, usando lftp..."
-        # Fallback para lftp via WSL se disponível
+        Write-Msg "WinSCP nao encontrado, usando lftp via WSL..."
         wsl lftp -c "set sftp:auto-confirm yes; open -u '$ftpUser','$ftpPass' sftp://${ftpServer}:${ftpPort}; mirror -R -v --parallel=2 --exclude .git --exclude .github --exclude .venv --exclude node_modules '$ProjectRoot' '$remoteDir'; bye"
     }
     
-    Write-Success "Sincronização SFTP concluída"
-    return $true
-}
-
-function Deploy-WPPages {
-    Write-Step "Criando/Atualizando páginas no WordPress via WP-CLI..."
-    
-    if (-not $SshHost -or -not $SshUser) {
-        Write-Error "Credenciais SSH não configuradas. Usando API REST..."
-        return Deploy-WPPagesAPI
-    }
-    
-    $sshCmd = if ($SshKeyPath) { "ssh -i `"$SshKeyPath`" $SshUser@$SshHost" } else { "ssh $SshUser@$SshHost" }
-    
-    # Páginas a criar
-    $pages = @(
-        @{ slug = "o-livrinho"; title = "O Livrinho"; template = "page-o-livrinho.php" },
-        @{ slug = "manifesto"; title = "Manifesto"; template = "page-manifesto.php" },
-        @{ slug = "biblia"; title = "Bíblia Online"; template = "page-biblia.php" },
-        @{ slug = "artigos"; title = "Artigos"; template = "page-artigos.php" },
-        @{ slug = "o-autor"; title = "O Autor"; template = "page-o-autor.php" },
-        @{ slug = "painel"; title = "Painel"; template = "page-painel.php" },
-        @{ slug = "an-agent"; title = "AN Agent"; template = "page-an-agent.php" }
-    )
-    
-    foreach ($page in $pages) {
-        $slug = $page.slug
-        $title = $page.title
-        $template = $page.template
-        
-        Write-Info "Verificando página: $title ($slug)..."
-        
-        # Verificar se página existe
-        $checkCmd = "wp post list --post_type=page --name=$slug --format=ids 2>/dev/null"
-        $pageId = Invoke-Expression "$sshCmd `"cd /htdocs && $checkCmd`""
-        
-        if ($pageId) {
-            Write-Info "  Página existe (ID: $pageId), atualizando template..."
-            $updateCmd = "wp post meta update $pageId _wp_page_template $template"
-            Invoke-Expression "$sshCmd `"cd /htdocs && $updateCmd`""
-        } else {
-            Write-Info "  Criando página..."
-            $createCmd = "wp post create --post_type=page --post_title='$title' --post_name=$slug --post_status=publish --page_template=$template"
-            Invoke-Expression "$sshCmd `"cd /htdocs && $createCmd`""
-        }
-    }
-    
-    Write-Success "Páginas WordPress sincronizadas"
+    Write-OK "Sincronizacao SFTP concluida"
     return $true
 }
 
 function Deploy-WPPagesAPI {
-    Write-Step "Criando páginas via WordPress REST API..."
+    Write-Step "Criando paginas via WordPress REST API..."
     
     $appPassword = $env:WP_APP_PASSWORD
     $adminUser = $env:WP_ADMIN_USER
     
     if (-not $appPassword) {
-        Write-Error "WP_APP_PASSWORD não configurado no .env"
-        Write-Info "Gere em: $SiteUrl/wp-admin/users.php -> Application Passwords"
+        Write-Err "WP_APP_PASSWORD nao configurado no .env"
+        Write-Msg "Gere em: $SiteUrl/wp-admin/users.php -> Application Passwords"
         return $false
     }
     
@@ -173,7 +128,7 @@ function Deploy-WPPagesAPI {
     $pages = @(
         @{ slug = "o-livrinho"; title = "O Livrinho" },
         @{ slug = "manifesto"; title = "Manifesto" },
-        @{ slug = "biblia"; title = "Bíblia Online" },
+        @{ slug = "biblia"; title = "Biblia Online" },
         @{ slug = "artigos"; title = "Artigos" },
         @{ slug = "o-autor"; title = "O Autor" },
         @{ slug = "painel"; title = "Painel" },
@@ -186,7 +141,7 @@ function Deploy-WPPagesAPI {
             $response = Invoke-RestMethod -Uri "$SiteUrl/wp-json/wp/v2/pages?slug=$($page.slug)" -Method Get -Headers $headers -ErrorAction SilentlyContinue
             
             if ($response.Count -eq 0) {
-                Write-Info "Criando: $($page.title)..."
+                Write-Msg "Criando: $($page.title)..."
                 $body = @{
                     title = $page.title
                     slug = $page.slug
@@ -194,13 +149,13 @@ function Deploy-WPPagesAPI {
                     content = ""
                 } | ConvertTo-Json
                 
-                Invoke-RestMethod -Uri "$SiteUrl/wp-json/wp/v2/pages" -Method Post -Headers $headers -Body $body
-                Write-Success "  Página criada: $($page.title)"
+                Invoke-RestMethod -Uri "$SiteUrl/wp-json/wp/v2/pages" -Method Post -Headers $headers -Body $body | Out-Null
+                Write-OK "Pagina criada: $($page.title)"
             } else {
-                Write-Info "  Página já existe: $($page.title)"
+                Write-Msg "Pagina ja existe: $($page.title)"
             }
         } catch {
-            Write-Error "  Erro ao processar $($page.title): $_"
+            Write-Err "Erro ao processar $($page.title): $_"
         }
     }
     
@@ -212,21 +167,21 @@ function Clear-WPCache {
     
     if ($SshHost -and $SshUser) {
         $sshCmd = if ($SshKeyPath) { "ssh -i `"$SshKeyPath`" $SshUser@$SshHost" } else { "ssh $SshUser@$SshHost" }
-        Invoke-Expression "$sshCmd `"cd /htdocs && wp cache flush 2>/dev/null; wp rewrite flush 2>/dev/null`""
-        Write-Success "Cache limpo via WP-CLI"
+        $result = Invoke-Expression "$sshCmd 'cd /htdocs; wp cache flush 2>/dev/null; wp rewrite flush 2>/dev/null'"
+        Write-OK "Cache limpo via WP-CLI"
     } else {
-        Write-Info "SSH não configurado, cache não pode ser limpo automaticamente"
+        Write-Msg "SSH nao configurado, cache nao pode ser limpo automaticamente"
+        Write-Msg "Limpe manualmente em: $SiteUrl/wp-admin/options-general.php"
     }
 }
 
 function Test-Site {
-    Write-Step "Validando site em produção..."
+    Write-Step "Validando site em producao..."
     
     $endpoints = @(
-        @{ path = "/"; expect = "A Culpa" },
+        @{ path = "/"; expect = "Culpa" },
         @{ path = "/o-livrinho"; expect = "Livrinho" },
-        @{ path = "/manifesto"; expect = "Manifesto" },
-        @{ path = "/artigos"; expect = "Artigos" }
+        @{ path = "/manifesto"; expect = "Manifesto" }
     )
     
     $allPassed = $true
@@ -235,13 +190,13 @@ function Test-Site {
         try {
             $response = Invoke-WebRequest -Uri "$SiteUrl$($ep.path)" -UseBasicParsing -TimeoutSec 10
             if ($response.Content -match $ep.expect) {
-                Write-Success "  $($ep.path) ✓"
+                Write-OK "$($ep.path)"
             } else {
-                Write-Error "  $($ep.path) - Conteúdo esperado não encontrado"
+                Write-Err "$($ep.path) - Conteudo esperado nao encontrado"
                 $allPassed = $false
             }
         } catch {
-            Write-Error "  $($ep.path) - Erro: $_"
+            Write-Err "$($ep.path) - Erro: $_"
             $allPassed = $false
         }
     }
@@ -250,39 +205,51 @@ function Test-Site {
 }
 
 function Show-Status {
-    Write-Host "`n═══════════════════════════════════════════════════════════" -ForegroundColor Yellow
-    Write-Host "  STATUS DO PROJETO: A Culpa é das Ovelhas" -ForegroundColor Yellow
-    Write-Host "═══════════════════════════════════════════════════════════`n" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "=======================================================" -ForegroundColor Yellow
+    Write-Host "  STATUS DO PROJETO: A Culpa e das Ovelhas" -ForegroundColor Yellow
+    Write-Host "=======================================================" -ForegroundColor Yellow
+    Write-Host ""
     
-    Write-Host "📁 Projeto: $ProjectRoot" -ForegroundColor Cyan
-    Write-Host "🌐 Site: $SiteUrl" -ForegroundColor Cyan
+    Write-Host "[Projeto] $ProjectRoot" -ForegroundColor Cyan
+    Write-Host "[Site]    $SiteUrl" -ForegroundColor Cyan
     
     # Git status
-    Write-Host "`n📦 Git:" -ForegroundColor Magenta
+    Write-Host ""
+    Write-Host "[Git]" -ForegroundColor Magenta
+    Set-Location $ProjectRoot
     $branch = git branch --show-current
     $lastCommit = git log -1 --format="%h - %s (%cr)"
     Write-Host "   Branch: $branch"
-    Write-Host "   Último commit: $lastCommit"
+    Write-Host "   Ultimo commit: $lastCommit"
     
     # Arquivos modificados
     $modified = (git status --porcelain | Measure-Object).Count
     Write-Host "   Arquivos modificados: $modified"
     
-    # Verificar conexões
-    Write-Host "`n🔗 Conexões:" -ForegroundColor Magenta
-    Write-Host "   SSH: $(if ($SshHost) { '✓ Configurado' } else { '✗ Não configurado' })"
-    Write-Host "   SFTP: $(if ($env:WP_FTP_SERVER) { '✓ Configurado' } else { '✗ Não configurado' })"
-    Write-Host "   WP API: $(if ($env:WP_APP_PASSWORD) { '✓ Configurado' } else { '✗ Não configurado' })"
+    # Verificar conexoes
+    Write-Host ""
+    Write-Host "[Conexoes]" -ForegroundColor Magenta
+    $sshStatus = if ($SshHost) { "[OK] Configurado ($SshHost)" } else { "[X] Nao configurado" }
+    $sftpStatus = if ($env:WP_FTP_SERVER) { "[OK] Configurado ($($env:WP_FTP_SERVER))" } else { "[X] Nao configurado" }
+    $apiStatus = if ($env:WP_APP_PASSWORD) { "[OK] Configurado" } else { "[X] Nao configurado" }
+    
+    Write-Host "   SSH:    $sshStatus"
+    Write-Host "   SFTP:   $sftpStatus"
+    Write-Host "   WP API: $apiStatus"
     
     Write-Host ""
 }
 
 # =============================================================================
-# EXECUÇÃO PRINCIPAL
+# EXECUCAO PRINCIPAL
 # =============================================================================
 
-Write-Host "`n🚀 DEPLOY AUTOMÁTICO - A Culpa é das Ovelhas" -ForegroundColor Yellow
-Write-Host "═══════════════════════════════════════════════`n" -ForegroundColor Yellow
+Write-Host ""
+Write-Host "=======================================================" -ForegroundColor Yellow
+Write-Host "  DEPLOY AUTOMATICO - A Culpa e das Ovelhas" -ForegroundColor Yellow
+Write-Host "=======================================================" -ForegroundColor Yellow
+Write-Host ""
 
 switch ($Action) {
     'status' {
@@ -294,39 +261,49 @@ switch ($Action) {
     'sftp' {
         Deploy-SFTP
     }
-    'wp-pages' {
-        Deploy-WPPages
+    'create-pages' {
+        Deploy-WPPagesAPI
     }
-    'wp-cache' {
+    'cache' {
         Clear-WPCache
     }
     'validate' {
         Test-Site
     }
     'full' {
-        Write-Host "Executando deploy completo...`n" -ForegroundColor Yellow
+        Write-Host "Executando deploy completo..." -ForegroundColor Yellow
+        Write-Host ""
         
         $steps = @(
-            @{ name = "Git Push"; fn = { Deploy-Git } },
-            @{ name = "SFTP Sync"; fn = { Deploy-SFTP } },
-            @{ name = "WP Pages"; fn = { Deploy-WPPages } },
-            @{ name = "Clear Cache"; fn = { Clear-WPCache } },
-            @{ name = "Validate"; fn = { Test-Site } }
+            @{ name = "Git Push"; action = "git" },
+            @{ name = "SFTP Sync"; action = "sftp" },
+            @{ name = "Create Pages"; action = "create-pages" },
+            @{ name = "Clear Cache"; action = "cache" },
+            @{ name = "Validate"; action = "validate" }
         )
         
         $results = @()
         foreach ($step in $steps) {
-            Write-Host "`n─── $($step.name) ───" -ForegroundColor DarkGray
-            $success = & $step.fn
+            Write-Host "--- $($step.name) ---" -ForegroundColor DarkGray
+            $success = $false
+            switch ($step.action) {
+                'git' { $success = Deploy-Git }
+                'sftp' { $success = Deploy-SFTP }
+                'create-pages' { $success = Deploy-WPPagesAPI }
+                'cache' { Clear-WPCache; $success = $true }
+                'validate' { $success = Test-Site }
+            }
             $results += @{ step = $step.name; success = $success }
+            Write-Host ""
         }
         
-        Write-Host "`n═══════════════════════════════════════════════" -ForegroundColor Yellow
+        Write-Host "=======================================================" -ForegroundColor Yellow
         Write-Host "  RESUMO DO DEPLOY" -ForegroundColor Yellow
-        Write-Host "═══════════════════════════════════════════════`n" -ForegroundColor Yellow
+        Write-Host "=======================================================" -ForegroundColor Yellow
+        Write-Host ""
         
         foreach ($r in $results) {
-            $icon = if ($r.success) { "✓" } else { "✗" }
+            $icon = if ($r.success) { "[OK]" } else { "[X]" }
             $color = if ($r.success) { "Green" } else { "Red" }
             Write-Host "  $icon $($r.step)" -ForegroundColor $color
         }

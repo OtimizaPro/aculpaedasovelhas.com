@@ -32,7 +32,7 @@ if (Test-Path $envPath) {
 function Get-EnvValue {
     param($key, $prompt, $default, $isPassword = $false)
     
-    $currentValue = $existingEnv[$key] ?? $default
+    $currentValue = if ($existingEnv[$key]) { $existingEnv[$key] } else { $default }
     $displayDefault = if ($currentValue -and -not $isPassword) { " [$currentValue]" } elseif ($currentValue -and $isPassword) { " [***configurado***]" } else { "" }
     
     Write-Host "$prompt$displayDefault`: " -NoNewline -ForegroundColor Yellow
