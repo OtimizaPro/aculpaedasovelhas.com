@@ -41,3 +41,7 @@ Este arquivo registra o histórico de aprovações e feedbacks do projeto.
 - **Data:** 2025-11-26
 - **Ação:** Criação da subpágina "O Autor" (`page-o-autor.php`) com biografia e testemunho.
 - **Status:** Aprovado e Implantado.
+
+- **Data:** 2025-11-26
+- **Ação:** Atualização do texto integral do Manifesto em `page-manifesto.php` (Edição 666).
+- **Status:** Aprovado e Implantado.
