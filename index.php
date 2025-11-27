@@ -17,8 +17,8 @@ if (file_exists(__DIR__ . '/page-artigos.php')) {
 </head>
 <body <?php body_class(); ?>>
     <main>
-        <h1><?php esc_html_e('A Culpa é das Ovelhas', 'aculpa'); ?></h1>
-        <p><?php esc_html_e('Painel não encontrado.', 'aculpa'); ?></p>
+        <h1><?php esc_html_e('Otimiza Pro', 'otimiza'); ?></h1>
+        <p><?php esc_html_e('Painel não encontrado.', 'otimiza'); ?></p>
     </main>
     <?php wp_footer(); ?>
 </body>

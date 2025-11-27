@@ -33,7 +33,7 @@
         <div class="content-wrapper" style="max-width: 800px;">
             <header class="ms-page-header" style="text-align: center; margin-bottom: 4rem;">
                 <span class="hero-pill" style="margin-bottom: 1rem;">Documento Oficial</span>
-                <h1>Manifesto: A Culpa é das Ovelhas</h1>
+                <h1>Manifesto: Otimiza Pro</h1>
                 <p class="ms-subtitle" style="margin: 0 auto;">A responsabilidade civil do Reino e a desconstrução de sistemas injustos.</p>
             </header>
             

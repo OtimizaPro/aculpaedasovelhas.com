@@ -13,3 +13,9 @@ Este arquivo registra o histórico de aprovações e feedbacks do projeto.
 - **Data:** 2025-02-20
 - **Ação:** Reversão do layout da Home para o estilo "Thesis" e migração do layout "Microsoft Account" para a página de Artigos (`page-artigos.php`).
 - **Status:** Em andamento.
+- **Data:** 2025-11-26
+- **Ação:** Adoção das instruções do 'INSTRUCTION's CODE CORE' e criação do arquivo `INSTRUCTIONS.md`.
+- **Status:** Concluído.
+- **Data:** 2025-11-26
+- **Ação:** Ajuste no workflow de deploy para utilizar SFTP e remover job SSH problemático.
+- **Status:** Em andamento (investigando falha no workflow).

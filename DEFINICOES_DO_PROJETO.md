@@ -1,9 +1,9 @@
 INSTRUCTION's CODE CORE
    VSCODE PROJECT 
-      SITE-ACULPAEDASOVELHAS
+      SITE-OTIMIZA-PRO
 
 ###Definições do Projeto
-#Site em Produção= aculpaedasovelhas.com
+#Site em Produção= otimiza.pro
 #Abrir o site em produção= Agent Usa recursos como extensões como do tipo VISION/ESCUTA/LEITURA DE CÓDIGO HTML/CRAWLER/SCRAPING/OUTROS, APIs, SSHs, Conectores e outros para ler/entender/comparar um Website/Site 
 #User Name=Anderson Belem Costa
 #User login= anderson@otimiza.pro
@@ -28,7 +28,7 @@ INSTRUCTION's CODE CORE
 #Consulta, sempre antes de quaisquer operação este=
  INSTRUCTION's CODE CORE
    VSCODE PROJECT 
-      SITE-ACULPAEDASOVELHAS
+      SITE-OTIMIZA-PRO
 
 ---
 ###Fluxo de Trabalho

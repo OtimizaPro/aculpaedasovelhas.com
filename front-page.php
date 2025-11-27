@@ -20,7 +20,7 @@
         <div class="hero-inner">
             <div class="hero-copy">
                 <span class="hero-pill">Manifesto vivo · 2025</span>
-                <h1>A Culpa é das Ovelhas</h1>
+                <h1>Otimiza Pro</h1>
                 <p>Revelação, tecnologia e responsabilidade civil alinhadas para despertar consciências e reescrever sistemas injustos.</p>
                 <ul class="hero-highlights">
                     <li>📜 Tradução proprietária e comentada da Revelação</li>

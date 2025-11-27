@@ -169,7 +169,7 @@
                                         
                                         <div class="card-footer">
                                             <a href="<?php the_permalink(); ?>" class="read-more">Ler artigo →</a>
-                                            <span class="read-time"><?php echo function_exists('acu_estimated_reading_time') ? acu_estimated_reading_time() : '5'; ?> min</span>
+                                            <span class="read-time"><?php echo function_exists('otimiza_estimated_reading_time') ? otimiza_estimated_reading_time() : '5'; ?> min</span>
                                         </div>
                                     </div>
                                 </article>

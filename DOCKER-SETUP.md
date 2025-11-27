@@ -62,7 +62,7 @@ O workflow `.github/workflows/deploy-theme.yml` faz automaticamente:
 
 ### Configurar Secrets no GitHub
 
-Adicione em: https://github.com/OtimizaPro/aculpaedasovelhas.com/settings/secrets/actions
+Adicione em: <https://github.com/OtimizaPro/otimiza.pro/settings/secrets/actions>
 
 ```
 DOCKER_USERNAME = andersonotimiza

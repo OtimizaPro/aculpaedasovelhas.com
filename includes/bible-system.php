@@ -3,7 +3,7 @@
  * Lightweight data source for the Bíblia Online section.
  */
 
-function acu_bible_get_books()
+function otimiza_bible_get_books()
 {
     return [
         [
@@ -105,9 +105,9 @@ function acu_bible_get_books()
     ];
 }
 
-function acu_bible_get_summary()
+function otimiza_bible_get_summary()
 {
-    $books = acu_bible_get_books();
+    $books = otimiza_bible_get_books();
     $totalChapters = 0;
     $commentedChapters = 0;
     $ready = 0;

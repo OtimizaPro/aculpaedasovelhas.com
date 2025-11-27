@@ -1,11 +1,11 @@
-# Histórico de Deploys – aculpaedasovelhas.com
+# Histórico de Deploys – otimiza.pro
 
 ## Deploy 2025-11-26 – Criação página Artigos e ajustes de fluxo
 
 **Data/Hora:** 2025-11-26
 **Responsável:** (preencher)
 **Ambiente:** Produção
-**Site:** <https://aculpaedasovelhas.com>
+**Site:** <https://otimiza.pro>
 
 **Branch:** main
 **Commit(s):** (preencher com hash ou link do commit)
@@ -19,15 +19,15 @@
 
 **Passos executados:**
 
-- Edição de arquivos na pasta local `C:\Projetos\AN Agent - site  aculpaedasovelhas.com`
+- Edição de arquivos na pasta local `C:\Projetos\AN Agent - otimiza.pro`
 - `git checkout main`
 - `git add .`
 - `git commit -m "Cria página Artigos e documenta fluxo de deploy"`
 - `git push origin main`
 - Atualização do código no servidor (git pull ou sincronização SFTP)
 - Validação manual no navegador em:
-  - `https://aculpaedasovelhas.com`
-  - `https://aculpaedasovelhas.com/artigos`
+  - `https://otimiza.pro`
+  - `https://otimiza.pro/artigos`
 
 **Resultado:**
 
@@ -43,7 +43,7 @@
 **Data/Hora:** 2025-02-20
 **Responsável:** GitHub Copilot
 **Ambiente:** Produção
-**Site:** <https://aculpaedasovelhas.com>
+**Site:** <https://otimiza.pro>
 
 **Branch:** main
 **Commit(s):** c9d69f9 (Bump version), 09e8c18 (Force front-page.php)
@@ -68,3 +68,36 @@
 **Observações:**
 
 - O site pode apresentar cache agressivo. Se o layout não mudar, verificar configurações de cache no servidor ou plugin.
+
+## Deploy 2025-11-26 – Rebranding Completo para Otimiza Pro
+
+**Data/Hora:** 2025-11-26
+**Responsável:** GitHub Copilot
+**Ambiente:** Produção
+**Site:** <https://otimiza.pro>
+
+**Branch:** main
+**Commit(s):** (será gerado)
+
+**Escopo do deploy:**
+
+- Rebranding total de "A Culpa é das Ovelhas" para "Otimiza Pro".
+- Refatoração de prefixos de funções PHP (`acu_` -> `otimiza_`).
+- Criação de arquivos de tema faltantes (`header.php`, `footer.php`, `single.php`).
+- Atualização de URLs e textos em toda a documentação e templates.
+- Ajustes no Dockerfile e configurações de ambiente.
+
+**Passos executados:**
+
+- `git add .`
+- `git commit -m "Rebranding completo para Otimiza Pro e correções estruturais"`
+- `git push origin main`
+
+**Resultado:**
+
+- [ ] Código enviado para repositório.
+- [ ] Validação em produção pendente.
+
+**Observações:**
+
+- Verificar se o servidor de produção atualizou corretamente os arquivos PHP refatorados para evitar erros fatais.

@@ -6,8 +6,8 @@
 
 require_once get_template_directory() . '/includes/bible-system.php';
 
-$books = acu_bible_get_books();
-$summary = acu_bible_get_summary();
+$books = otimiza_bible_get_books();
+$summary = otimiza_bible_get_summary();
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>

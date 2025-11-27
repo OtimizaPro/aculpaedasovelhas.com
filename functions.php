@@ -9,7 +9,7 @@ add_action('after_setup_theme', function () {
 });
 
 // Estimar tempo de leitura
-function acu_estimated_reading_time() {
+function otimiza_estimated_reading_time() {
     $content = get_post_field('post_content', get_the_ID());
     $word_count = str_word_count(strip_tags($content));
     $reading_time = ceil($word_count / 200);
@@ -20,14 +20,14 @@ add_action('wp_enqueue_scripts', function () {
     $version = wp_get_theme()->get('Version') ?: '0.1.0';
 
     wp_enqueue_style(
-        'aculpa-theme-style',
+        'otimiza-theme-style',
         get_stylesheet_uri(),
         [],
         $version
     );
 
     wp_enqueue_script(
-        'aculpa-theme-toggle',
+        'otimiza-theme-toggle',
         get_template_directory_uri() . '/assets/js/theme-toggle.js',
         [],
         $version,
@@ -36,7 +36,7 @@ add_action('wp_enqueue_scripts', function () {
 
     if (is_page_template('page-biblia.php')) {
         wp_enqueue_script(
-            'aculpa-bible-ui',
+            'otimiza-bible-ui',
             get_template_directory_uri() . '/assets/js/bible.js',
             [],
             $version,
@@ -46,7 +46,7 @@ add_action('wp_enqueue_scripts', function () {
     
     if (is_page_template('page-artigos.php')) {
         wp_enqueue_script(
-            'aculpa-artigos-ui',
+            'otimiza-artigos-ui',
             get_template_directory_uri() . '/assets/js/artigos.js',
             [],
             $version,
