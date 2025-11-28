@@ -83,12 +83,17 @@ body {
 }
 
 /* Remove WordPress.com gifting banner that appears on business plans */
-#wpcom-gifting-banner,
-.has-wpcom-gifting-banner #wpcom-gifting-banner {
+body #wpcom-gifting-banner-container,
+body #wpcom-gifting-banner {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.has-wpcom-gifting-banner body {
+.has-wpcom-gifting-banner body,
+html.has-wpcom-gifting-banner {
     margin-top: 0 !important;
 }
 
@@ -259,12 +264,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .theme-toggle {
-    width: 40px;
+    width: auto; /* Changed from 40px */
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    gap: 0.5rem; /* Added gap */
+    padding: 0 1rem; /* Added padding */
+    border-radius: 50px; /* Changed to pill shape */
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     transition: all var(--transition-fast);
@@ -327,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left; /* Changed from center */
     position: relative;
     overflow: hidden;
 }
@@ -340,11 +347,20 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
+/* New Hero Grid Layout */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    width: 100%;
+    max-width: var(--container-max);
+    padding: 0 2rem;
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 1000px;
-    padding: 0 2rem;
 }
 
 .hero-subtitle {
@@ -363,16 +379,197 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 3rem;
+    margin: 0 0 2rem 0; /* Changed from auto */
     line-height: 1.7;
 }
+
+/* New Hero Highlights List */
+.hero-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3rem 0;
+    color: var(--text-secondary);
+}
+
+.hero-highlights li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.hero-highlights li::before {
+    content: '📜';
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+.hero-highlights li:nth-child(2)::before {
+    content: '🧠';
+}
+
+.hero-highlights li:nth-child(3)::before {
+    content: '🤖';
+}
+
 
 .hero-ctas {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center */
     flex-wrap: wrap;
 }
+
+/* New Hero Panel */
+.hero-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    font-size: 0.875rem;
+}
+
+.hero-panel-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-panel-header span {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.hero-panel-header strong {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.hero-panel-body .panel-note {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+
+/* Responsive adjustments for Hero Grid */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    .hero-content, .hero-panel {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .hero-description {
+        margin: 0 auto 2rem;
+    }
+    .hero-ctas {
+        justify-content: center;
+    }
+    .hero-highlights {
+        text-align: left;
+        display: inline-block;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT, BIBLE, ARTICLES, CTA SECTIONS (New Sections)
+   ═══════════════════════════════════════════════════════════════ */
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.about-image img {
+    border-radius: 8px;
+}
+
+/* Bible System & CTA Section */
+.bible-system-content, .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.bible-system-content p, .cta-text {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.cta-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+/* Articles Section */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.article-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all var(--transition-medium);
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+}
+
+.article-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.article-card-excerpt {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    REVELATIONS SECTION

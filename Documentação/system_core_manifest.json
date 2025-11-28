@@ -35,7 +35,7 @@
     {
       "id": "SFTP-2025-11-27",
       "date": "2025-11-27",
-      "error_signature": "Deploy automatizado conclui sem alterar o site; tema em produção permanece 'Otimiza Pro'.",
+      "error_signature": "Deploy automatizado conclui sem alterar o site; tema em produção permanece com a versão anterior.",
       "root_cause": "Etapa de SFTP do workflow falhou porque as credenciais aceitas pelo WordPress.com não estavam válidas/localmente acessíveis, interrompendo a sincronização do tema.",
       "solution_implemented": "Confirmar que apenas o fluxo GitHub Actions deve ser usado; credenciais devem ser revisadas no painel WordPress.com e atualizadas nos GitHub Secrets antes do próximo deploy."
     }

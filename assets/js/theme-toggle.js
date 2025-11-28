@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement;
+    const themeToggleText = document.querySelector('.theme-toggle-text');
     
     // Check local storage or system preference
     const savedTheme = localStorage.getItem('theme');
@@ -26,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleBtn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
             toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
             toggleBtn.title = theme === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro';
+        }
+
+        if (themeToggleText) {
+            themeToggleText.textContent = theme === 'dark' ? 'Escuro' : 'Claro';
         }
     }
 });

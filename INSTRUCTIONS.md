@@ -49,3 +49,26 @@
 #### Deploy_Push
 1. Agent Abre o site em produção;
 2. Agent utiliza recursos que o permitam comparar o conteúdo exato do Deploy_Push com o Site em Produção antes de reportar ao User o Feedback;
+
+---
+
+### Protocolo de Alteração "Cirúrgico e Verificado"
+Para garantir precisão, evitar erros e eliminar retrabalho, o Agent seguirá estritamente o seguinte protocolo para qualquer alteração de código, especialmente as pontuais.
+
+1.  **Confirmação Explícita (O Alvo):**
+    - Antes de qualquer ação, o Agent descreverá em detalhes a alteração que compreendeu e o elemento exato que será afetado.
+    - Pedirá a confirmação explícita do User ("Correto?") antes de prosseguir.
+
+2.  **Análise de Impacto (O Raio-X):**
+    - Após a confirmação, o Agent fará uma análise de impacto focada, verificando CSS, scripts e outras dependências para garantir que a alteração não causará efeitos colaterais indesejados.
+
+3.  **Execução Local e Verificação (A Simulação):**
+    - A alteração será implementada e testada **primeiro** no ambiente de desenvolvimento local (Docker).
+    - O Agent verificará pessoalmente se a alteração funciona como esperado e se nenhuma outra parte do site foi afetada.
+
+4.  **Relatório com Provas (O Laudo):**
+    - O Agent apresentará o resultado da verificação local, confirmando o sucesso da implementação e a ausência de problemas.
+    - Pedirá a aprovação final do User para o deploy. Ex: "Alteração verificada localmente. Pronto para o deploy em produção?"
+
+5.  **Deploy (A Operação Final):**
+    - Somente após a aprovação final do User, o Agent executará o deploy para o ambiente de produção, seguindo o fluxo padrão (git push).

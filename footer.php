@@ -6,7 +6,7 @@
             <!-- Brand Column -->
             <div class="footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-                    A Culpa é das Ovelhas
+                    <?php bloginfo('name'); ?>
                 </a>
                 <p>"Revelando verdades que transformam - para os que tem ouvidos para ouvir."</p>
                 
